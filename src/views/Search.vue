@@ -15,6 +15,7 @@ export default {
       document.querySelector(".nav").style.display="block"
     }
   }
+  
 };
 </script>
 

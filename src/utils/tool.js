@@ -1,4 +1,9 @@
 import { instance } from "./request";
 
-// 数据请求
+/**
+ * 请求数据
+ * @param {*} url
+ * @param {*} params
+ */
+
 export const get = (url, params) => instance.get(url, { params });
