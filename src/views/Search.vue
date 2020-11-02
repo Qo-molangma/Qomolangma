@@ -12,6 +12,7 @@ export default {
       this.$router.push({
         name:'tuijian'
       })
+      document.querySelector(".nav").style.display="block"
     }
   }
 };

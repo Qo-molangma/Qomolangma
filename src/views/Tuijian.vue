@@ -17,13 +17,23 @@
           更多
         </a>
       </div>
-      <ul class="list-view-body" v-for="(i,index) in item.rankingContentInfoList.rankModuleInfoList" :key="index">
+      <ul class="list-view-body" v-for="i in item.rankingContentInfoList.rankModuleInfoList" :key="i.id">
         <li class="list-view-item">
           <div class="album">
-            <div class="album-cover"></div>
+            <div class="album-cover">
+              <img :src="`https://imagev2.xmcdn.com/${i.albumInfo.cover}`" alt="">
+            </div>
             <div class="content">
-              <h3 class="album-title">{{i.title}}</h3>
-              <p class="album-content"></p>
+              <h3 class="album-title">{{i.albumInfo.title}}</h3>
+              <p class="album-content">{{i.albumInfo.salePoint}}</p>
+            </div>
+            <div class="album-info">
+              <span class="count">
+                <i class="icon-sound"></i>
+              </span>
+              <span class="count">
+                <i class="icon-data"></i>
+              </span>
             </div>
           </div>
         </li>
@@ -43,6 +53,7 @@ export default {
     return {
       zmtomato: [],
       listView: [],
+      newList:[],
     };
   },
   created() {
@@ -58,7 +69,7 @@ export default {
       this.zmtomato = data.tomatoes;
       // console.log(this.zmtomato);
       this.listView = data.moduleRankDatas;
-      console.log(this.listView);
+      // console.log(this.listView);
     },
   },
 };

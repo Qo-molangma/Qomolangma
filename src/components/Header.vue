@@ -14,12 +14,13 @@
 
 <script>
 export default {
-  name:"Head",
+  name: "Head",
   methods: {
     search() {
       this.$router.push({
         name: "sousuo",
       });
+      document.querySelector(".nav").style.display = "none";
     },
   },
 };
