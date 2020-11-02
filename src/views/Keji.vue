@@ -30,7 +30,7 @@ export default {
       );
       // console.log(res);
       this.zmtomato = res.data.moduleContent.tomatoes;
-      console.log(this.zmtomato);
+      // console.log(this.zmtomato);
     },
   },
 };
