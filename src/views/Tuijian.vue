@@ -17,23 +17,32 @@
           更多
         </a>
       </div>
-      <ul class="list-view-body" v-for="i in item.rankingContentInfoList.rankModuleInfoList" :key="i.id">
+      <ul
+        class="list-view-body"
+        v-for="i in item.rankingContentInfoList.rankModuleInfoList"
+        :key="i.id"
+      >
         <li class="list-view-item">
           <div class="album">
             <div class="album-cover">
-              <img :src="`https://imagev2.xmcdn.com/${i.albumInfo.cover}`" alt="">
+              <img
+                :src="`https://imagev2.xmcdn.com/${i.albumInfo.cover}`"
+                alt=""
+              />
             </div>
             <div class="content">
-              <h3 class="album-title">{{i.albumInfo.title}}</h3>
-              <p class="album-content">{{i.albumInfo.salePoint}}</p>
-            </div>
-            <div class="album-info">
-              <span class="count">
-                <i class="icon-sound"></i>
-              </span>
-              <span class="count">
-                <i class="icon-data"></i>
-              </span>
+              <h3 class="album-title">{{ i.albumInfo.title }}</h3>
+              <p class="album-content">{{ i.albumInfo.salePoint }}</p>
+              <div class="album-info">
+                <span class="count">
+                  章节:
+                  {{ i.statCountInfo.trackCount }}
+                </span>
+                <span class="count">
+                  播放次数:
+                  {{ i.statCountInfo.playCount }}
+                </span>
+              </div>
             </div>
           </div>
         </li>
@@ -53,7 +62,7 @@ export default {
     return {
       zmtomato: [],
       listView: [],
-      newList:[],
+      newList: [],
     };
   },
   created() {

@@ -93,6 +93,7 @@
             white-space: nowrap;
             text-overflow: ellipsis;
             box-sizing: border-box;
+            padding-left: 20px;
           }
 
           .album-content {
@@ -105,12 +106,14 @@
             white-space: nowrap;
             text-overflow: ellipsis;
             color: #999;
+            padding-left: 20px;
           }
 
           .album-info {
             font-size: 11px;
             line-height: 1.45;
             white-space: nowrap;
+            color: #999;
 
             .count {
               margin-right: 10px;
@@ -119,6 +122,7 @@
               vertical-align: top;
               min-width: 55px;
             }
+            
           }
         }
       }
