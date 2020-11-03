@@ -7,3 +7,9 @@ import { instance } from "./request";
  */
 
 export const get = (url, params) => instance.get(url, { params });
+export function getLocalstorage() {
+    return localStorage.getItem('searchHistory')
+}
+export function setLocalstorage(data) {
+    return localStorage.setItem('searchHistory', data)
+}
