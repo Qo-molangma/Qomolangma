@@ -8,7 +8,7 @@
   justify-content: space-between;
 
   .list-view-header {
-    width: 90%;
+    width: 100%;
     display: flex;
     align-items: center !important;
     justify-content: space-between;
@@ -43,7 +43,7 @@
   }
 
   .list-view-body {
-    width: 90%;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -63,8 +63,8 @@
         justify-content: center;
 
         .album-cover {
-          width: 70px;
-          height: 70px;
+          width: 90px;
+          height: 90px;
           padding: 0 15px 0 0;
           background-color: #fff;
           box-sizing: content-box;
