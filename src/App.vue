@@ -1,10 +1,14 @@
 <template>
   <div id="app">
-    <Header />
+    <keep-alive>
+      <Header />
+    </keep-alive>
     <Nav />
-    <div class="content">
-      <router-view class="" />
-    </div>
+    <keep-alive>
+      <div class="content">
+        <router-view class="" />
+      </div>
+    </keep-alive>
   </div>
 </template>
 

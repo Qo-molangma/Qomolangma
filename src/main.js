@@ -4,7 +4,7 @@ import Vant from "vant";
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
-import { Button, Tab, Tabs, Grid, GridItem } from "vant";
+import { Button, Tab, Tabs, Grid, GridItem, List } from "vant";
 import "vant/lib/index.css";
 import Vuex from 'vuex'
 Vue.use(Vuex)
@@ -15,7 +15,7 @@ Vue.use(ElementUI);
 
 Vue.use(Vant);
 
-Vue.use(Button, Tab, Tabs, Grid, GridItem);
+Vue.use(Button, Tab, Tabs, Grid, GridItem, List);
 
 new Vue({
     router,

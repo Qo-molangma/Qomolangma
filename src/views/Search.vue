@@ -88,7 +88,7 @@ export default {
   },
   methods: {
     searchClick(item) {
-      this.$router.push({name:"searchresult",params:{item:item}})
+      this.$router.push({ name: "searchresult", params: { item: item } });
     },
     //删除历史记录
     async delHis() {
@@ -98,14 +98,14 @@ export default {
     },
     async onSearch(val) {
       setLocalstorage(val);
-      this.searchClick(val)
+      this.searchClick(val);
     },
     onCancel() {
       Toast("取消");
       this.$router.push({
         name: "tuijian",
       });
-        document.querySelector(".nav").style.display = "block";
+      document.querySelector(".nav").style.display = "block";
     },
     //加载历史搜索
     async loadSerachHistory() {
@@ -115,7 +115,7 @@ export default {
     },
   },
   created() {
-    this.$router.push({name:"hot"})
+    this.$router.push({ name: "hot" });
     this.loadSerachHistory();
   },
 };

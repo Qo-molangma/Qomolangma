@@ -6,6 +6,7 @@
         :key="index"
         :title="item.moduleName"
         :to="{ name: item.moduleKey }"
+        :click="getUrl()"
       >
       </van-tab>
     </van-tabs>
@@ -32,6 +33,10 @@ export default {
       );
       this.Tablist = res.data;
       // console.log(this.Tablist);
+    },
+    getUrl() {
+     var test =  window.location.hash;
+     console.log(test)
     },
   },
 };
