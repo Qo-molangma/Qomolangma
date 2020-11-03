@@ -64,6 +64,16 @@ const routes = [
     name: "sousuo",
     component: () => import("../views/Search.vue"),
   },
+  {
+    path: "/Details",
+    name: "details",
+    component: () => import("../views/Details.vue"),
+  },
+  {
+    path: "/Playpage",
+    name: "playpage",
+    component: () => import("../views/Playpage.vue"),
+  },
 ];
 
 const router = new VueRouter({
