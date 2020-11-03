@@ -10,9 +10,14 @@
     </van-grid>
     <div class="list-view" v-for="item in listView" :key="item.order">
       <div class="list-view-header">
-        <h2 class="list-view-title">{{ item.moduleInfo.displayName }}</h2>
+        <h2 class="list-view-title" style="margin: 17px 0 17px 15px">
+          {{ item.moduleInfo.displayName }}
+        </h2>
       </div>
-      <div class="album-ver">
+      <div
+        class="album-ver"
+        style="aline-items: center; justify-content: space-around; margin: 0"
+      >
         <section
           class="album-wrap"
           v-for="v in item.albumBriefDetailInfos.slice(0, 3)"
@@ -60,7 +65,9 @@
     </div>
     <div class="list-view">
       <div class="list-view-header">
-        <h2 class="list-view-title">更多推荐</h2>
+        <h2 class="list-view-title" style="margin: 17px 0 17px 15px">
+          更多推荐
+        </h2>
       </div>
       <van-list
         v-model="loading"
@@ -104,7 +111,7 @@ export default {
       list: [],
       loading: false,
       finished: false,
-      albumList:[]
+      albumList: [],
     };
   },
   created() {
@@ -133,9 +140,9 @@ export default {
       this.moreSound = [...this.moreSound, ...moreSound.data.materials];
 
       // console.log(this.moreSound);
-      
+
       this.albumList = this.moreSound.filter(function (v) {
-        return (v.type === "album");
+        return v.type === "album";
       });
 
       this.loading = false;

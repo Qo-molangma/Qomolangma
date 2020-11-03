@@ -1,5 +1,5 @@
 <template>
-  <div class="youshengshu">
+  <div class="qinggan">
     <van-grid :column-num="5">
       <van-grid-item
         v-for="(item, index) in zmtomato"
