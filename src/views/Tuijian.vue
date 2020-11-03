@@ -12,7 +12,7 @@
     <div class="list-view" v-for="item in listView" :key="item.order">
       <div class="list-view-header">
         <h2 class="list-view-title">{{ item.title }}</h2>
-        <a href="">
+        <a href="" >
           <i></i>
           更多
         </a>
