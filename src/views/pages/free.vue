@@ -49,9 +49,13 @@ export default {
   .van-sidebar {
     width: 80px;
     margin-right: 0;
+    height: 100%;
+    overflow: auto;
+    // z-index: -1;
   }
   .router-view {
     flex: 1;
+    z-index: -999;
   }
 }
 </style>

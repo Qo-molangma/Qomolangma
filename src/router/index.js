@@ -77,6 +77,11 @@ const routes = [
     ],
   },
   {
+    path: "/details",
+    name: "details",
+    components: () => import("../views/Details"),
+  },
+  {
     path: "/gengduo",
     name: "more",
     component: () => import("../views/More.vue"),
@@ -398,14 +403,15 @@ const routes = [
           {
             path: "xiangshengpingshu4",
             name: "107",
-            component: () => import("../views/pages/paid/xiangshengpingshu.vue"),
+            component: () =>
+              import("../views/pages/paid/xiangshengpingshu.vue"),
           },
           {
             path: "yishu4",
             name: "351",
             component: () => import("../views/pages/paid/yishu.vue"),
           },
-        ]
+        ],
       },
       {
         //订阅榜

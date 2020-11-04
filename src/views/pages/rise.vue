@@ -25,8 +25,8 @@ export default {
   created() {
     this.loadData();
     this.$router.push({
-      name:"155"
-    })
+      name: "155",
+    });
   },
   methods: {
     async loadData() {
@@ -46,12 +46,16 @@ export default {
   width: 100%;
   height: 100%;
   display: flex;
-  justify-content: space-between;
+
   .van-sidebar {
     width: 80px;
+    margin-right: 0;
+    height: 100%;
+    overflow: auto;
   }
   .router-view {
     flex: 1;
+    z-index: -999;
   }
 }
 </style>
