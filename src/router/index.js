@@ -315,28 +315,7 @@ const routes = [
           },
         ],
       },
-      {
-        path: "/Searchresult",
-        name: "Searchresult",
-        component: () => import("../views/Searchresult.vue"),
-        children: [
-          {
-            path: "album",
-            name: "album",
-            component: () => import("../views/searchresult/Album.vue"),
-          },
-          {
-            path: "voice",
-            name: "voice",
-            component: () => import("../views/searchresult/Voice.vue"),
-          },
-          {
-            path: "anchor",
-            name: "anchor2",
-            component: () => import("../views/searchresult/Anchor.vue"),
-          },
-        ],
-      },
+    
       {
         path: "subscribe",
         name: "subscribe",
@@ -755,27 +734,27 @@ const routes = [
         name: "other",
         component: () => import("../views/search/Other.vue"),
       },
+    ],
+  },
+  {
+    path: "/Searchresult",
+    name: "Searchresult",
+    component: () => import("../views/Searchresult.vue"),
+    children: [
       {
-        path: "/Searchresult",
-        name: "Searchresult",
-        component: () => import("../views/Searchresult.vue"),
-        children: [
-          {
-            path: "album",
-            name: "album",
-            component: () => import("../views/searchresult/Album.vue"),
-          },
-          {
-            path: "voice",
-            name: "voice",
-            component: () => import("../views/searchresult/Voice.vue"),
-          },
-          {
-            path: "anchor",
-            name: "anchor2",
-            component: () => import("../views/searchresult/Anchor.vue"),
-          },
-        ],
+        path: "album",
+        name: "album",
+        component: () => import("../views/searchresult/Album.vue"),
+      },
+      {
+        path: "voice",
+        name: "voice",
+        component: () => import("../views/searchresult/Voice.vue"),
+      },
+      {
+        path: "anchor",
+        name: "anchor2",
+        component: () => import("../views/searchresult/Anchor.vue"),
       },
     ],
   },
