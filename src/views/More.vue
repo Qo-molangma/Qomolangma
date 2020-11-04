@@ -29,6 +29,9 @@ export default {
   },
   created() {
     this.loadData();
+    this.$router.push({
+      name:"free"
+    })
   },
   methods: {
     async loadData() {
@@ -38,7 +41,7 @@ export default {
       const data = res.data;
       // console.log(data);
       this.title = data;
-      console.log(this.title);
+      // console.log(this.title);
     },
   },
 };
@@ -52,7 +55,6 @@ export default {
   left: 0;
   right: 0;
   overflow: auto;
-  background: blanchedalmond;
 }
 .van-sidebar {
   margin-right: 300px;

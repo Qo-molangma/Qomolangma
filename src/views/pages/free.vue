@@ -24,6 +24,9 @@ export default {
   },
   created() {
     this.loadData();
+    this.$router.push({
+      name:"0"
+    })
   },
   methods: {
     async loadData() {

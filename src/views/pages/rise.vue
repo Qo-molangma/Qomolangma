@@ -24,6 +24,9 @@ export default {
   },
   created() {
     this.loadData();
+    this.$router.push({
+      name:"155"
+    })
   },
   methods: {
     async loadData() {
@@ -32,7 +35,7 @@ export default {
       );
       const data = res.data[1].categoryInfos;
       this.titleList = data;
-      // console.log(this.titleList);
+      console.log(this.titleList);
     },
   },
 };
