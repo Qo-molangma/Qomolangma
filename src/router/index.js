@@ -55,9 +55,9 @@ const routes = [
     component: () => import("../views/Keji.vue"),
   },
   {
-    path:"/details",
+    path: "/details",
     name: "details",
-    components: () => import("../views/Details")
+    components: () => import("../views/Details"),
   },
   {
     path: "/gengduo",
@@ -265,7 +265,8 @@ const routes = [
           {
             path: "jiankangyangsheng3",
             name: "166",
-            component: () => import("../views/pages/rise/jiankangyangsheng.vue"),
+            component: () =>
+              import("../views/pages/rise/jiankangyangsheng.vue"),
           },
           {
             path: "guangboju3",
@@ -313,30 +314,27 @@ const routes = [
             component: () => import("../views/pages/rise/diantai.vue"),
           },
         ],
-    },
-    {
+      },
+      {
         path: "/Searchresult",
         name: "Searchresult",
-        component: () =>
-            import ("../views/Searchresult.vue"),
-        children: [{
-                path: "album",
-                name: "album",
-                component: () =>
-                    import ("../views/searchresult/Album.vue"),
-            },
-            {
-                path: "voice",
-                name: "voice",
-                component: () =>
-                    import ("../views/searchresult/Voice.vue"),
-            },
-            {
-                path: "anchor",
-                name: "anchor2",
-                component: () =>
-                    import ("../views/searchresult/Anchor.vue"),
-            },
+        component: () => import("../views/Searchresult.vue"),
+        children: [
+          {
+            path: "album",
+            name: "album",
+            component: () => import("../views/searchresult/Album.vue"),
+          },
+          {
+            path: "voice",
+            name: "voice",
+            component: () => import("../views/searchresult/Voice.vue"),
+          },
+          {
+            path: "anchor",
+            name: "anchor2",
+            component: () => import("../views/searchresult/Anchor.vue"),
+          },
         ],
       },
       {
@@ -757,34 +755,34 @@ const routes = [
         name: "other",
         component: () => import("../views/search/Other.vue"),
       },
-    ],
-  },
-  {
-    path: "/Searchresult",
-    name: "Searchresult",
-    component: () => import("../views/Searchresult.vue"),
-    children: [
       {
-        path: "album",
-        name: "album",
-        component: () => import("../views/searchresult/Album.vue"),
-      },
-      {
-        path: "voice",
-        name: "voice",
-        component: () => import("../views/searchresult/Voice.vue"),
-      },
-      {
-        path: "anchor",
-        name: "anchor2",
-        component: () => import("../views/searchresult/Anchor.vue"),
+        path: "/Searchresult",
+        name: "Searchresult",
+        component: () => import("../views/Searchresult.vue"),
+        children: [
+          {
+            path: "album",
+            name: "album",
+            component: () => import("../views/searchresult/Album.vue"),
+          },
+          {
+            path: "voice",
+            name: "voice",
+            component: () => import("../views/searchresult/Voice.vue"),
+          },
+          {
+            path: "anchor",
+            name: "anchor2",
+            component: () => import("../views/searchresult/Anchor.vue"),
+          },
+        ],
       },
     ],
   },
 ];
 
 const router = new VueRouter({
-    routes,
+  routes,
 });
 
 export default router;
