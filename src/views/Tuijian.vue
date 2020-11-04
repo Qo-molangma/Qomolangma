@@ -23,7 +23,7 @@
         :key="i.id"
       >
         <li class="list-view-item">
-          <div class="album">
+          <div class="album" @click="toDetails(i)">
             <div class="album-cover">
               <img
                 :src="`https://imagev2.xmcdn.com/${i.albumInfo.cover}`"
@@ -69,6 +69,10 @@ export default {
     this.loadData();
   },
   methods: {
+    toDetails(i){
+      this.$router.push({name:"details",params:{item:i},query:{item:i}})
+      document.querySelector('.nav').style.display="none"
+    },
     async loadData() {
       const res = await get(
         "https://m.ximalaya.com/m-revision/page/index/queryIndexTabContent?moduleKey=tuijian"
