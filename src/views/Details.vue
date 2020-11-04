@@ -1,16 +1,16 @@
 <template>
   <div class="detail-page">
-    <div class="detail-head" style="background:url()">
+    <div class="detail-head">
       <img :src="src" />
       <div class="play-count">
         <van-icon name="service-o" />{{ playCount | wan }}
       </div>
-      <p class="nickname">{{ nickname }}</p>
+      <p class="nickname">作者: {{ nickname }}</p>
     </div>
     <div>
       <h2 class="txt_2">节目({{ trackCount }})</h2>
       <ul class="list">
-        <li v-for="(item, index) in title" :key="index" @click="toPlay(id)">
+        <li v-for="(item, index) in title" :key="index" @click="toPlay(id,item.trackInfo.id)">
           <van-icon name="play-circle-o" size="20"/>
           <span>
             {{ item.trackInfo.title }}
@@ -41,7 +41,8 @@ export default {
       nickname: "",
       page:1,
       pages:1,
-      id:0
+      id:0,
+      infoId:0
     };
   },
   created() {
@@ -62,6 +63,7 @@ export default {
       );
       const data = res.data.trackDetailInfos;
       console.log(res);
+      console.log(this.infoId);
       this.pages=Math.ceil(res.data.totalCount/res.data.pageSize)  
       console.log(this.pages);
       this.title = data;
@@ -76,8 +78,8 @@ export default {
        document.querySelector('.nomore').style.display="block"
     }
     },
-    toPlay(id){
-        this.$router.push({name:"playpage",query:{id:id}})
+    toPlay(id,infoId){
+        this.$router.push({name:"playpage",query:{id:id,infoId:infoId}})
     }
   },
   filters: {},
@@ -85,6 +87,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.detail-head{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .detail-head img {
   margin: 0 auto;
 }
