@@ -32,7 +32,7 @@ export default {
       );
       const data = res.data[4].categoryInfos;
       this.titleList = data;
-      console.log(this.titleList);
+      // console.log(this.titleList);
     },
   },
 };
