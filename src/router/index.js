@@ -3,7 +3,6 @@ import VueRouter from "vue-router";
 
 Vue.use(VueRouter);
 
-<<<<<<< HEAD
 const routes = [
   {
     path: "/",
@@ -393,7 +392,8 @@ const routes = [
           {
             path: "xiangshengpingshu6",
             name: "202",
-            component: () => import("../views/pages/anchor/xiangshengpingshu.vue"),
+            component: () =>
+              import("../views/pages/anchor/xiangshengpingshu.vue"),
           },
           {
             path: "ertong6",
@@ -433,7 +433,8 @@ const routes = [
           {
             path: "qingganshenghuo6",
             name: "196",
-            component: () => import("../views/pages/anchor/qingganshenghuo.vue"),
+            component: () =>
+              import("../views/pages/anchor/qingganshenghuo.vue"),
           },
           {
             path: "shangyecaijing6",
@@ -515,7 +516,8 @@ const routes = [
           {
             path: "youshengshu7",
             name: "251",
-            component: () => import("../views/pages/reputation/youshengshu.vue"),
+            component: () =>
+              import("../views/pages/reputation/youshengshu.vue"),
           },
           {
             path: "yule7",
@@ -535,12 +537,14 @@ const routes = [
           {
             path: "yangshengjiankang7",
             name: "255",
-            component: () => import("../views/pages/reputation/yangshengjiankang.vue"),
+            component: () =>
+              import("../views/pages/reputation/yangshengjiankang.vue"),
           },
           {
             path: "shangyecaijing7",
             name: "256",
-            component: () => import("../views/pages/reputation/shangyecaijing.vue"),
+            component: () =>
+              import("../views/pages/reputation/shangyecaijing.vue"),
           },
           {
             path: "lishi7",
@@ -550,7 +554,8 @@ const routes = [
           {
             path: "qingganshenghuo7",
             name: "258",
-            component: () => import("../views/pages/reputation/qingganshenghuo.vue"),
+            component: () =>
+              import("../views/pages/reputation/qingganshenghuo.vue"),
           },
           {
             path: "guangboju7",
@@ -560,14 +565,16 @@ const routes = [
           {
             path: "jiaoyupeixun7",
             name: "261",
-            component: () => import("../views/pages/reputation/jiaoyupeixun.vue"),
+            component: () =>
+              import("../views/pages/reputation/jiaoyupeixun.vue"),
           },
           {
             path: "xiangshengpingshu7",
             name: "260",
-            component: () => import("../views/pages/reputation/xiangshengpingshu.vue"),
+            component: () =>
+              import("../views/pages/reputation/xiangshengpingshu.vue"),
           },
-        ]
+        ],
       },
     ],
   },
@@ -575,167 +582,80 @@ const routes = [
     path: "/search",
     name: "sousuo",
     component: () => import("../views/Search.vue"),
+    children: [
+      {
+        path: "hot",
+        name: "hot",
+        component: () => import("../views/search/Hot.vue"),
+      },
+      {
+        path: "soundbooks",
+        name: "soundbooks",
+        component: () => import("../views/search/Soundbooks.vue"),
+      },
+      {
+        path: "storytelling",
+        name: "storytelling",
+        component: () => import("../views/search/Storytelling.vue"),
+      },
+      {
+        path: "sound",
+        name: "sound",
+        component: () => import("../views/search/Sound.vue"),
+      },
+      {
+        path: "history",
+        name: "history",
+        component: () => import("../views/search/History.vue"),
+      },
+      {
+        path: "music",
+        name: "music",
+        component: () => import("../views/search/Music.vue"),
+      },
+      {
+        path: "humanity",
+        name: "humanity",
+        component: () => import("../views/search/Humanity.vue"),
+      },
+      {
+        path: "bussinessfin",
+        name: "bussinessfin",
+        component: () => import("../views/search/BussinessFin.vue"),
+      },
+      {
+        path: "other",
+        name: "other",
+        component: () => import("../views/search/Other.vue"),
+      },
+    ],
   },
-=======
-const routes = [{
-        path: "/",
-        name: "tuijian",
-        component: () =>
-            import ("../views/Tuijian.vue"),
-    },
-    {
-        path: "/youshengshu",
-        name: "youshengshu",
-        component: () =>
-            import ("../views/Youshengshu.vue"),
-    },
-    {
-        path: "/xiangsheng",
-        name: "xiangsheng",
-        component: () =>
-            import ("../views/Xiangsheng.vue"),
-    },
-    {
-        path: "/yinyue",
-        name: "yinyue",
-        component: () =>
-            import ("../views/Yinyue.vue"),
-    },
-    {
-        path: "/ertong",
-        name: "ertong",
-        component: () =>
-            import ("../views/Ertong.vue"),
-    },
-    {
-        path: "/toutiao",
-        name: "toutiao",
-        component: () =>
-            import ("../views/Toutiao.vue"),
-    },
-    {
-        path: "/renwen",
-        name: "renwen",
-        component: () =>
-            import ("../views/Renwen.vue"),
-    },
-    {
-        path: "/qinggan",
-        name: "qinggan",
-        component: () =>
-            import ("../views/Qinggan.vue"),
-    },
-    {
-        path: "/lishi",
-        name: "lishi",
-        component: () =>
-            import ("../views/Lishi.vue"),
-    },
-    {
-        path: "/keji",
-        name: "keji",
-        component: () =>
-            import ("../views/Keji.vue"),
-    },
-    {
-        path: "/gengduo",
-        name: "more",
-        component: () =>
-            import ("../views/More.vue"),
-    },
-    {
-        path: "/searchresult",
-        name: "searchresult",
-        component: () =>
-            import ("../views/Searchresult.vue"),
-    },
-    {
-        path: "/search",
-        name: "sousuo",
-        component: () =>
-            import ("../views/Search.vue"),
-        children: [{
-                path: "hot",
-                name: "hot",
-                component: () =>
-                    import ("../views/search/Hot.vue"),
-            }, {
-                path: "soundbooks",
-                name: "soundbooks",
-                component: () =>
-                    import ("../views/search/Soundbooks.vue"),
-            }, {
-                path: "storytelling",
-                name: "storytelling",
-                component: () =>
-                    import ("../views/search/Storytelling.vue"),
-            }, {
-                path: "sound",
-                name: "sound",
-                component: () =>
-                    import ("../views/search/Sound.vue"),
-            }, {
-                path: "history",
-                name: "history",
-                component: () =>
-                    import ("../views/search/History.vue"),
-            },
-            {
-                path: "music",
-                name: "music",
-                component: () =>
-                    import ("../views/search/Music.vue"),
-            },
-            {
-                path: "humanity",
-                name: "humanity",
-                component: () =>
-                    import ("../views/search/Humanity.vue"),
-            },
-            {
-                path: "bussinessfin",
-                name: "bussinessfin",
-                component: () =>
-                    import ("../views/search/BussinessFin.vue"),
-            },
-            {
-                path: "other",
-                name: "other",
-                component: () =>
-                    import ("../views/search/Other.vue"),
-            },
-        ]
-    },
-    {
-        path: "/Searchresult",
-        name: "Searchresult",
-        component: () =>
-            import ("../views/Searchresult.vue"),
-        children: [{
-                path: "album",
-                name: "album",
-                component: () =>
-                    import ("../views/searchresult/Album.vue"),
-            },
-            {
-                path: "voice",
-                name: "voice",
-                component: () =>
-                    import ("../views/searchresult/Voice.vue"),
-            },
-            {
-                path: "anchor",
-                name: "anchor",
-                component: () =>
-                    import ("../views/searchresult/Anchor.vue"),
-            },
-        ]
-    },
->>>>>>> 441488f56e5b1f7839f5c2f21422f74077252807
+  {
+    path: "/Searchresult",
+    name: "Searchresult",
+    component: () => import("../views/Searchresult.vue"),
+    children: [
+      {
+        path: "album",
+        name: "album",
+        component: () => import("../views/searchresult/Album.vue"),
+      },
+      {
+        path: "voice",
+        name: "voice",
+        component: () => import("../views/searchresult/Voice.vue"),
+      },
+      {
+        path: "anchor",
+        name: "anchor2",
+        component: () => import("../views/searchresult/Anchor.vue"),
+      },
+    ],
+  },
 ];
 
 const router = new VueRouter({
-    routes,
+  routes,
 });
 
 export default router;

@@ -1,11 +1,14 @@
 <template>
   <div class="more">
+    <keep-alive>
+      <Header />
+    </keep-alive>
     <van-tabs>
       <van-tab
         v-for="(item, index) in title"
         :key="index"
         :title="`${item.clusterName}`"
-        :to="{name:`${item.clusterCode}`}"
+        :to="{ name: `${item.clusterCode}` }"
       >
       </van-tab>
     </van-tabs>
@@ -15,8 +18,10 @@
 
 <script>
 import { get } from "../utils/tool";
+import Header from "../components/Header";
+
 export default {
-  components: {},
+  components: { Header },
   data() {
     return {
       title: [],

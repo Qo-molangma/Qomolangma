@@ -12,7 +12,7 @@
     <div class="list-view" v-for="item in listView" :key="item.order">
       <div class="list-view-header">
         <h2 class="list-view-title">{{ item.title }}</h2>
-        <a href="" >
+        <a href="javascript:;" class="more" @click="more">
           <i></i>
           更多
         </a>
@@ -79,6 +79,12 @@ export default {
       // console.log(this.zmtomato);
       this.listView = data.moduleRankDatas;
       // console.log(this.listView);
+    },
+    more() {
+      this.$router.push({
+        name: "more",
+      });
+      document.querySelector(".nav").style.display = "none"
     },
   },
 };

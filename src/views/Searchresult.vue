@@ -25,7 +25,7 @@ export default {
       category: [
         { name: "album", word: "专辑" },
         { name: "voice", word: "声音" },
-        { name: "anchor", word: "主播" },
+        { name: "anchor2", word: "主播" },
       ],
     };
   },

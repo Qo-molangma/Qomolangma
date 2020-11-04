@@ -88,7 +88,7 @@ export default {
   },
   methods: {
     searchClick(item) {
-      this.$router.push({ name: "searchresult", params: { item: item } });
+      this.$router.push({ name: "Searchresult", params: { item: item } });
     },
     //删除历史记录
     async delHis() {
