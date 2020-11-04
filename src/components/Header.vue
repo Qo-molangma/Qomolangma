@@ -41,6 +41,7 @@ export default {
   align-items: center;
   justify-content: space-around;
   z-index: 0!important;
+  position:relative;
 
   .logo {
     height: 2rem;

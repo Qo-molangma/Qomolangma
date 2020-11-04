@@ -51,7 +51,7 @@ export default {
     margin-right: 0;
     height: 100%;
     overflow: auto;
-    z-index: -1;
+    // z-index: -1;
   }
   .router-view {
     flex: 1;
