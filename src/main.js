@@ -1,5 +1,6 @@
 import Vue from "vue";
 import ElementUI from "element-ui";
+
 import Vant from "vant";
 import App from "./App.vue";
 import router from "./router";
@@ -12,6 +13,8 @@ Vue.use(Vuex)
 Vue.config.productionTip = false;
 
 Vue.use(ElementUI);
+
+
 
 Vue.use(Vant);
 
