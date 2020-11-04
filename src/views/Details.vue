@@ -1,11 +1,11 @@
 <template>
   <div class="detail-page">
-    <div class="detail-head" style="background:url()">
+    <div class="detail-head">
       <img :src="src" />
       <div class="play-count">
         <van-icon name="service-o" />{{ playCount | wan }}
       </div>
-      <p class="nickname">{{ nickname }}</p>
+      <p class="nickname">作者: {{ nickname }}</p>
     </div>
     <div>
       <h2 class="txt_2">节目({{ trackCount }})</h2>
@@ -87,6 +87,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.detail-head{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .detail-head img {
   margin: 0 auto;
 }
