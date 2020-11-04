@@ -1,103 +1,26 @@
 <template>
   <div class="detail-page">
-    <div class="detail-head">
-      <img
-        alt="习近平新时代中国特色社会主义思想学习纲要"
-        src="//imagev2.xmcdn.com/group62/M08/57/04/wKgMZ1z7asCSSAR8AAFp44juMnc336.jpg!op_type=3&amp;columns=144&amp;rows=144&amp;magick=webp"
-      />
-      <div class="play-count"><van-icon name="service-o" />&nbsp;1.51亿</div>
+    <div class="detail-head" style="background:url()">
+      <img :src="src" />
+      <div class="play-count">
+        <van-icon name="service-o" />{{ playCount | wan }}
+      </div>
+      <p class="nickname">{{ nickname }}</p>
     </div>
-
-    <h3 class="detail-title">
-      &nbsp;<van-icon
-        name="arrow-down"
-        color="#ff7500"
-      />
-    </h3>
-    <div class="intro">
-      <p
-        data-flag="normal"
-        style="
-          color: #333333;
-          font-weight: normal;
-          font-size: 16px;
-          line-height: 30px;
-          font-family: Helvetica, Arial, sans-serif;
-          hyphens: auto;
-          text-align: left;
-        "
-        lang="en"
-      >
-        <b
-          ><b
-            >《习近平新时代中国特色社会主义思想学习纲要》一书由中共中央宣传部组织编写，学习出版社、人民出版社联合出版。</b
-          ></b
-        >
-      </p>
-      <span><br /></span>
-      <p
-        style="
-          color: #333333;
-          font-weight: normal;
-          font-size: 16px;
-          line-height: 30px;
-          font-family: Helvetica, Arial, sans-serif;
-          hyphens: auto;
-          text-align: left;
-        "
-        data-flag="normal"
-        lang="en"
-      >
-        有声内容由学习出版社、喜马拉雅联合出品，西安广播电视台承制。
-      </p>
-      <span><br /></span>
-      <blockquote
-        style="
-          font-size: 14px;
-          margin: 10px 0px;
-          color: rgb(102, 102, 102);
-          border-left: 5px solid rgb(232, 232, 232);
-          padding-left: 15px;
-        "
-      >
-        <p
-          data-flag="bk-span"
-          style="color: #666666; font-size: 14px"
-          lang="en"
-        >
-          <b>播讲人</b>
-        </p>
-        <p
-          data-flag="bk-span"
-          style="color: #666666; font-size: 14px"
-          lang="en"
-        >
-          王 东: 西安广播电视台 主持人
-        </p>
-        <p
-          style="color: #666666; font-size: 14px"
-          lang="en"
-          data-flag="bk-span"
-        >
-          鱼承:西安广播电视台 主持人
-        </p>
-        <p
-          style="color: #666666; font-size: 14px"
-          lang="en"
-          data-flag="bk-span"
-        >
-          岳 玲：西安广播电视台 新闻主播
-        </p>
-      </blockquote>
-    </div>
-
     <div>
-      <h2 class="txt_2">节目(100)</h2>
-      <ul v-for="(item,index) in title" :key="index">
-        <van-icon name="play-circle-o" />
-        {{item.trackInfo.title}}
+      <h2 class="txt_2">节目({{ trackCount }})</h2>
+      <ul class="list">
+        <li v-for="(item, index) in title" :key="index" @click="toPlay(id)">
+          <van-icon name="play-circle-o" size="20"/>
+          <span>
+            {{ item.trackInfo.title }}
+          </span>
+        </li>
       </ul>
-      <p class="load-more tc">加载更多<van-icon name="arrow-down" color="#ff7500" /></p>
+      <p class="load-more tc" @click="loadMore">
+        加载更多<van-icon name="arrow-down" color="#ff7500" />
+      </p>
+      <p class="nomore">没有更多了</p>
     </div>
   </div>
 </template>
@@ -111,36 +34,73 @@ export default {
   data() {
     return {
       title: [],
-      points:[],
+      points: [],
+      src: "",
+      playCount: 0,
+      trackCount: 0,
+      nickname: "",
+      page:1,
+      pages:1,
+      id:0
     };
   },
   created() {
     this.loadData();
+    console.log(this.$route);
+    console.log(this.$route.params.item.id);
+    this.src =
+      "https://imagev2.xmcdn.com/" + this.$route.params.item.albumInfo.cover;
+    this.playCount = this.$route.params.item.statCountInfo.playCount;
+    this.trackCount = this.$route.params.item.statCountInfo.trackCount;
+    this.nickname = this.$route.params.item.anchorInfo.nickname;
+    this.id=this.$route.params.item.id
   },
   methods: {
     async loadData() {
       const res = await get(
-        "https://m.ximalaya.com/m-revision/common/album/queryAlbumTrackRecordsByPage?albumId=24004983&page=1&pageSize=10&asc=true&countKeys=play%2Ccomment&v=1604303035067"
-      );
-      const point = await get(
-        "https://m.ximalaya.com/m-revision/common/anchor/queryAnchorAlbumsByPage?anchorId=68181111&page=1&pageSize=1&asc=true"
+        `https://m.ximalaya.com/m-revision/common/album/queryAlbumTrackRecordsByPage?albumId=${this.$route.params.item.id}&page=1&pageSize=10&asc=true&countKeys=play%2Ccomment&v=1604303035067`
       );
       const data = res.data.trackDetailInfos;
-      const poin = point.data.albumBriefDetailInfos;
-      console.log(poin)
-      this.points = poin
-      //console.log(this.points)
-      
+      console.log(res);
+      this.pages=Math.ceil(res.data.totalCount/res.data.pageSize)  
+      console.log(this.pages);
       this.title = data;
-      
     },
+  async  loadMore(){
+    this.page++
+    if(this.page<=this.pages){
+        let res= await get( `https://m.ximalaya.com/m-revision/common/album/queryAlbumTrackRecordsByPage?albumId=${this.$route.params.item.id}&page=${this.page}&pageSize=10&asc=true&countKeys=play%2Ccomment&v=1604303035067`)
+        this.title=[...this.title,...res.data.trackDetailInfos]
+    }else{
+      document.querySelector('.load-more').remove()
+       document.querySelector('.nomore').style.display="block"
+    }
+    },
+    toPlay(id){
+        this.$router.push({name:"playpage",query:{id:id}})
+    }
   },
+  filters: {},
 };
 </script>
 
 <style lang="scss" scoped>
 .detail-head img {
   margin: 0 auto;
+}
+.list {
+  padding: 2px 12px;
+}
+.list li {
+  display: flex;
+  justify-content: flex-start;
+  font-size: 16px;
+  border-bottom: 1px solid #aaa;
+  padding: 12px 0;
+  color: #333;
+}
+.list span {
+  margin-left: 10px;
 }
 .play-count {
   margin: 0 auto;
@@ -161,20 +121,31 @@ export default {
   color: rgba(0, 0, 0, 0.8);
   text-align: center;
 }
-
+.nickname {
+  text-align: center;
+  font-size: 14px;
+  color: #222;
+}
 .intro {
   padding: 10px 15px 0;
 }
 .load-more {
-    display: block;
-    text-align: center;
-    padding: 17px 0;
-    font-size: 15px;
-    line-height: 1.4;
-    font-weight: 700;
-    color: #f86442;}
-.txt_2{
+  display: block;
+  text-align: center;
+  padding: 17px 0;
+  font-size: 15px;
+  line-height: 1.4;
+  font-weight: 700;
+  color: #f86442;
+}
+.txt_2 {
   font-size: 18px;
-    line-height: 1.39;
+  line-height: 1.39;
+  font-weight: bold;
+  text-indent: 2em;
+}
+.nomore{
+display: none;
+text-align: center;
 }
 </style>
