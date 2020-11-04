@@ -1,10 +1,14 @@
 <template>
   <div id="app">
-    <Header />
+    <keep-alive>
+      <Header />
+    </keep-alive>
     <Nav />
-    <div class="content">
-      <router-view class="" />
-    </div>
+    <keep-alive>
+      <div class="content">
+        <router-view class="" />
+      </div>
+    </keep-alive>
   </div>
 </template>
 
@@ -30,7 +34,7 @@ export default {
   flex-direction: column;
 
   .content {
-    flex:1;
+    flex: 1;
     display: flex;
     align-items: center;
     justify-content: center;

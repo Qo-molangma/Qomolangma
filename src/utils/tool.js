@@ -7,9 +7,25 @@ import { instance } from "./request";
  */
 
 export const get = (url, params) => instance.get(url, { params });
+//拿到localstorage
 export function getLocalstorage() {
-    return localStorage.getItem('searchHistory')
+    if (!localStorage.getItem('searchHistory')) {
+        return []
+    }
+    return JSON.parse(localStorage.getItem('searchHistory'))
 }
+//设置localstorage
 export function setLocalstorage(data) {
-    return localStorage.setItem('searchHistory', data)
+    let localArr
+    if (!localStorage.getItem('searchHistory')) {
+        localArr = []
+    } else {
+        localArr = JSON.parse(localStorage.getItem('searchHistory'))
+    }
+    localArr.push(data)
+    localStorage.setItem('searchHistory', JSON.stringify(localArr))
+}
+//清空localstorage
+export function removeLocalstorage() {
+    localStorage.removeItem("searchHistory")
 }
