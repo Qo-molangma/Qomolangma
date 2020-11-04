@@ -95,7 +95,7 @@ const routes = [
             component: () => import("../views/pages/free/lishi.vue"),
           },
           {
-            path: "yinyuie2",
+            path: "yinyue2",
             name: "2",
             component: () => import("../views/pages/free/yinyue.vue"),
           },
@@ -118,6 +118,67 @@ const routes = [
             path: "qingganshenghuo2",
             name: "10",
             component: () => import("../views/pages/free/qingganshenghuo.vue"),
+          },
+          {
+            path: "shangyecaijing2",
+            name: "8",
+            component: () => import("../views/pages/free/shangyecaijing.vue"),
+          },
+          {
+            path: "toutiao2",
+            name: "1",
+            component: () => import("../views/pages/free/toutiao.vue"),
+          },
+          {
+            path: "jiankangyangsheng2",
+            name: "7",
+            component: () =>
+              import("../views/pages/free/jiankangyangsheng.vue"),
+          },
+          {
+            path: "guangboju2",
+            name: "15",
+            component: () => import("../views/pages/free/guangboju.vue"),
+          },
+          {
+            path: "xiqu2",
+            name: "16",
+            component: () => import("../views/pages/free/xiqu.vue"),
+          },
+          {
+            path: "ITkeji2",
+            name: "18",
+            component: () => import("../views/pages/free/ITkeji.vue"),
+          },
+          {
+            path: "lvyou2",
+            name: "22",
+            component: () => import("../views/pages/free/lvyou.vue"),
+          },
+          {
+            path: "yingshi2",
+            name: "23",
+            component: () => import("../views/pages/free/yingshi.vue"),
+          },
+          {
+            path: "shishangshenghuo2",
+            name: "31",
+            component: () => import("../views/pages/free/shishangshenghuo.vue"),
+          },
+          {
+            path: "qiche2",
+            name: "21",
+            component: () => import("../views/pages/free/qiche.vue"),
+          },
+          {
+            path: "erciyuan2",
+            name: "24",
+            component: () => import("../views/pages/free/erciyuan.vue"),
+          },
+          {
+            path: "diantai2",
+            name: "17",
+            component: () => import("../views/pages/free/diantai.vue"),
           },
         ],
       },
@@ -180,6 +241,71 @@ const routes = [
             path: "yule3",
             name: "164",
             component: () => import("../views/pages/rise/yule.vue"),
+          },
+          {
+            path: "qingganshenghuo3",
+            name: "169",
+            component: () => import("../views/pages/rise/qingganshenghuo.vue"),
+          },
+          {
+            path: "shangyecaijing3",
+            name: "167",
+            component: () => import("../views/pages/rise/shangyecaijing.vue"),
+          },
+          {
+            path: "toutiao3",
+            name: "162",
+            component: () => import("../views/pages/rise/toutiao.vue"),
+          },
+          {
+            path: "jiankangyangsheng3",
+            name: "166",
+            component: () => import("../views/pages/rise/jiankangyangsheng.vue"),
+          },
+          {
+            path: "guangboju3",
+            name: "171",
+            component: () => import("../views/pages/rise/guangboju.vue"),
+          },
+          {
+            path: "xiqu3",
+            name: "172",
+            component: () => import("../views/pages/rise/xiqu.vue"),
+          },
+          {
+            path: "ITkeji3",
+            name: "174",
+            component: () => import("../views/pages/rise/ITkeji.vue"),
+          },
+          {
+            path: "lvyou3",
+            name: "178",
+            component: () => import("../views/pages/rise/lvyou.vue"),
+          },
+          {
+            path: "yinghsi3",
+            name: "177",
+            component: () => import("../views/pages/rise/yingshi.vue"),
+          },
+          {
+            path: "shishangshenghuo3",
+            name: "179",
+            component: () => import("../views/pages/rise/shishangshenghuo.vue"),
+          },
+          {
+            path: "qiche3",
+            name: "175",
+            component: () => import("../views/pages/rise/qiche.vue"),
+          },
+          {
+            path: "erciyuan3",
+            name: "176",
+            component: () => import("../views/pages/rise/erciyuan.vue"),
+          },
+          {
+            path: "diantai3",
+            name: "173",
+            component: () => import("../views/pages/rise/diantai.vue"),
           },
         ],
       },
@@ -573,6 +699,52 @@ const routes = [
             name: "260",
             component: () =>
               import("../views/pages/reputation/xiangshengpingshu.vue"),
+          },
+          {
+            path: "xiqu7",
+            name: "264",
+            component: () => import("../views/pages/reputation/xiqu.vue"),
+          },
+          {
+            path: "diantai7",
+            name: "265",
+            component: () => import("../views/pages/reputation/diantai.vue"),
+          },
+          {
+            path: "ITkeji7",
+            name: "266",
+            component: () => import("../views/pages/reputation/ITkeji.vue"),
+          },
+          {
+            path: "qiche7",
+            name: "269",
+            component: () => import("../views/pages/reputation/qiche.vue"),
+          },
+          {
+            path: "lvyou7",
+            name: "270",
+            component: () => import("../views/pages/reputation/lvyou.vue"),
+          },
+          {
+            path: "yingshi7",
+            name: "271",
+            component: () => import("../views/pages/reputation/yingshi.vue"),
+          },
+          {
+            path: "erciyuan7",
+            name: "272",
+            component: () => import("../views/pages/reputation/erciyuan.vue"),
+          },
+          {
+            path: "shishangshenghuo7",
+            name: "276",
+            component: () =>
+              import("../views/pages/reputation/shishangshenghuo.vue"),
+          },
+          {
+            path: "renwen7",
+            name: "277",
+            component: () => import("../views/pages/reputation/renwen.vue"),
           },
         ],
       },

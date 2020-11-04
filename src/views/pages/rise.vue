@@ -35,7 +35,7 @@ export default {
       );
       const data = res.data[1].categoryInfos;
       this.titleList = data;
-      // console.log(this.titleList);
+      console.log(this.titleList);
     },
   },
 };
