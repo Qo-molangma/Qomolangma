@@ -55,6 +55,11 @@ const routes = [
     component: () => import("../views/Keji.vue"),
   },
   {
+    path:"/details",
+    name: "details",
+    components: () => import("../views/Details")
+  },
+  {
     path: "/gengduo",
     name: "more",
     component: () => import("../views/More.vue"),
