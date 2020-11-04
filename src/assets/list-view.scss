@@ -1,0 +1,131 @@
+.list-view {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+  .list-view-header {
+    width: 100%;
+    display: flex;
+    align-items: center !important;
+    justify-content: space-between;
+    position: relative;
+
+    .list-view-title {
+      line-height: 1.38;
+      color: #333;
+      font-weight: 700;
+    }
+
+    a {
+      position: absolute;
+      right: 14px;
+      font-size: 12px;
+      height: 25px;
+      line-height: 25px;
+      color: rgb(114, 114, 123);
+      top: 0px;
+
+      i {
+        position: absolute;
+        top: 8px;
+        left: 30px;
+        width: 6px;
+        height: 6px;
+        border-top: 2px solid rgb(114, 114, 123);
+        border-right: 2px solid rgb(114, 114, 123);
+        transform: rotate(45deg);
+      }
+    }
+  }
+
+  .list-view-body {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    box-sizing: border-box;
+
+    .list-view-item {
+      width: 100% !important;
+      border-bottom: 1px solid #f3f4f5;
+      padding: 15px 10px 15px 0;
+      box-sizing: border-box;
+
+      .album {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .album-cover {
+          width: 90px;
+          height: 90px;
+          padding: 0 15px 0 0;
+          background-color: #fff;
+          box-sizing: content-box;
+          margin-bottom: -1px;
+
+          img {
+            width: 100%;
+            height: 100%;
+          }
+        }
+
+        .content {
+          width: 250px;
+          display: flex;
+          align-items: center;
+          flex-direction: column;
+          justify-content: space-between;
+          overflow: hidden !important;
+
+          .album-title {
+            width: 250px;
+            color: rgb(51, 51, 51);
+            font-size: 16px;
+            line-height: 1.38;
+            overflow: hidden !important;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            box-sizing: border-box;
+            padding-left: 20px;
+          }
+
+          .album-content {
+            width: 250px;
+            margin: 5px 0 7px;
+            box-sizing: border-box;
+            font-size: 13px;
+            line-height: 1.38;
+            overflow: hidden !important;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            color: #999;
+            padding-left: 20px;
+          }
+
+          .album-info {
+            font-size: 11px;
+            line-height: 1.45;
+            white-space: nowrap;
+            color: #999;
+
+            .count {
+              margin-right: 10px;
+              display: inline-block;
+              line-height: 20px;
+              vertical-align: top;
+              min-width: 55px;
+            }
+
+          }
+        }
+      }
+    }
+  }
+}

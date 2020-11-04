@@ -45,8 +45,3 @@ instance.interceptors.response.use(
   }
 );
 
-/**
- * 请求数据
- * @param {*} url
- * @param {*} params
- */
