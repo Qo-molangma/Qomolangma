@@ -29,6 +29,9 @@ export default {
   },
   created() {
     this.loadData();
+    this.$router.push({
+      name:"free"
+    })
   },
   methods: {
     async loadData() {

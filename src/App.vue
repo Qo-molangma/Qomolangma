@@ -4,11 +4,9 @@
       <Header />
     </keep-alive>
     <Nav />
-    <keep-alive>
-      <div class="content">
-        <router-view class="" />
-      </div>
-    </keep-alive>
+    <div class="content">
+      <router-view class="" />
+    </div>
   </div>
 </template>
 
