@@ -3,7 +3,6 @@ import VueRouter from "vue-router";
 
 Vue.use(VueRouter);
 
-<<<<<<< HEAD
 const routes = [
   {
     path: "/",
@@ -572,84 +571,6 @@ const routes = [
     ],
   },
   {
-    path: "/search",
-    name: "sousuo",
-    component: () => import("../views/Search.vue"),
-  },
-=======
-const routes = [{
-        path: "/",
-        name: "tuijian",
-        component: () =>
-            import ("../views/Tuijian.vue"),
-    },
-    {
-        path: "/youshengshu",
-        name: "youshengshu",
-        component: () =>
-            import ("../views/Youshengshu.vue"),
-    },
-    {
-        path: "/xiangsheng",
-        name: "xiangsheng",
-        component: () =>
-            import ("../views/Xiangsheng.vue"),
-    },
-    {
-        path: "/yinyue",
-        name: "yinyue",
-        component: () =>
-            import ("../views/Yinyue.vue"),
-    },
-    {
-        path: "/ertong",
-        name: "ertong",
-        component: () =>
-            import ("../views/Ertong.vue"),
-    },
-    {
-        path: "/toutiao",
-        name: "toutiao",
-        component: () =>
-            import ("../views/Toutiao.vue"),
-    },
-    {
-        path: "/renwen",
-        name: "renwen",
-        component: () =>
-            import ("../views/Renwen.vue"),
-    },
-    {
-        path: "/qinggan",
-        name: "qinggan",
-        component: () =>
-            import ("../views/Qinggan.vue"),
-    },
-    {
-        path: "/lishi",
-        name: "lishi",
-        component: () =>
-            import ("../views/Lishi.vue"),
-    },
-    {
-        path: "/keji",
-        name: "keji",
-        component: () =>
-            import ("../views/Keji.vue"),
-    },
-    {
-        path: "/gengduo",
-        name: "more",
-        component: () =>
-            import ("../views/More.vue"),
-    },
-    {
-        path: "/searchresult",
-        name: "searchresult",
-        component: () =>
-            import ("../views/Searchresult.vue"),
-    },
-    {
         path: "/search",
         name: "sousuo",
         component: () =>
@@ -731,7 +652,6 @@ const routes = [{
             },
         ]
     },
->>>>>>> 441488f56e5b1f7839f5c2f21422f74077252807
 ];
 
 const router = new VueRouter({
