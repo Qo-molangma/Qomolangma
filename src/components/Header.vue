@@ -40,6 +40,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-around;
+  z-index: 0!important;
 
   .logo {
     height: 2rem;
