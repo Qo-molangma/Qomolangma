@@ -43,7 +43,7 @@ export default {
       const res = await get(
         "https://m.ximalaya.com/m-revision/page/rank/queryRank?clusterCode=anchor&categoryCode=zuixinfufei"
       );
-      console.log(res.data);
+      // console.log(res.data);
       this.list = res.data.rankModuleInfoList;
     },
   },

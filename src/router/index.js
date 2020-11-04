@@ -64,11 +64,43 @@ const routes = [{
             import ("../views/Keji.vue"),
     },
     {
+        path: "/Searchresult",
+        name: "Searchresult",
+        component: () =>
+            import ("../views/Searchresult.vue"),
+        children: [{
+                path: "album",
+                name: "album",
+                component: () =>
+                    import ("../views/searchresult/Album.vue"),
+            },
+            {
+                path: "voice",
+                name: "voice",
+                component: () =>
+                    import ("../views/searchresult/Voice.vue"),
+            },
+            {
+                path: "anchor",
+                name: "anchor2",
+                component: () =>
+                    import ("../views/searchresult/Anchor.vue"),
+            },
+        ],
+    },
+    {
+        path: "/details",
+        name: "details",
+        components: () =>
+            import ("../views/Details"),
+    },
+    {
         path: "/gengduo",
         name: "more",
         component: () =>
             import ("../views/More.vue"),
         children: [{
+                //免费榜
                 path: "free",
                 name: "free",
                 component: () =>
@@ -214,6 +246,7 @@ const routes = [{
                 ],
             },
             {
+                //攀升榜
                 path: "rise",
                 name: "rise",
                 component: () =>
@@ -364,8 +397,94 @@ const routes = [{
                     },
                 ],
             },
-
             {
+                //付费榜
+                path: "paid",
+                name: "paid",
+                component: () =>
+                    import ("../views/pages/paid.vue"),
+                children: [{
+                        path: "remen4",
+                        name: "95",
+                        component: () =>
+                            import ("../views/pages/paid/remen.vue"),
+                    },
+                    {
+                        path: "xinpin4",
+                        name: "160",
+                        component: () =>
+                            import ("../views/pages/paid/xinpin.vue"),
+                    },
+                    {
+                        path: "VIP4",
+                        name: "348",
+                        component: () =>
+                            import ("../views/pages/paid/VIP.vue"),
+                    },
+                    {
+                        path: "biaosheng4",
+                        name: "349",
+                        component: () =>
+                            import ("../views/pages/paid/biaosheng.vue"),
+                    },
+                    {
+                        path: "youshengshu4",
+                        name: "98",
+                        component: () =>
+                            import ("../views/pages/paid/youshengshu.vue"),
+                    },
+                    {
+                        path: "renwen4",
+                        name: "124",
+                        component: () =>
+                            import ("../views/pages/paid/renwen.vue"),
+                    },
+                    {
+                        path: "jiaoyupeixun4",
+                        name: "108",
+                        component: () =>
+                            import ("../views/pages/paid/jiaoyupeixun.vue"),
+                    },
+                    {
+                        path: "shangyecaijing4",
+                        name: "103",
+                        component: () =>
+                            import ("../views/pages/paid/shangyecaijing.vue"),
+                    },
+                    {
+                        path: "lishi4",
+                        name: "104",
+                        component: () =>
+                            import ("../views/pages/paid/lishi.vue"),
+                    },
+                    {
+                        path: "waiyu4",
+                        name: "350",
+                        component: () =>
+                            import ("../views/pages/paid/waiyu.vue"),
+                    },
+                    {
+                        path: "ertong4",
+                        name: "101",
+                        component: () =>
+                            import ("../views/pages/paid/ertong.vue"),
+                    },
+                    {
+                        path: "xiangshengpingshu4",
+                        name: "107",
+                        component: () =>
+                            import ("../views/pages/paid/xiangshengpingshu.vue"),
+                    },
+                    {
+                        path: "yishu4",
+                        name: "351",
+                        component: () =>
+                            import ("../views/pages/paid/yishu.vue"),
+                    },
+                ],
+            },
+            {
+                //订阅榜
                 path: "subscribe",
                 name: "subscribe",
                 component: () =>
@@ -511,6 +630,7 @@ const routes = [{
                 ],
             },
             {
+                //主播榜
                 path: "anchor",
                 name: "anchor",
                 component: () =>
@@ -638,6 +758,7 @@ const routes = [{
                 ],
             },
             {
+                //好评榜
                 path: "reputation",
                 name: "reputation",
                 component: () =>
@@ -783,30 +904,6 @@ const routes = [{
                 ],
             },
         ],
-    }, {
-        path: "/Searchresult",
-        name: "Searchresult",
-        component: () =>
-            import ("../views/Searchresult.vue"),
-        children: [{
-                path: "album",
-                name: "album",
-                component: () =>
-                    import ("../views/searchresult/Album.vue"),
-            },
-            {
-                path: "voice",
-                name: "voice",
-                component: () =>
-                    import ("../views/searchresult/Voice.vue"),
-            },
-            {
-                path: "anchor",
-                name: "anchor2",
-                component: () =>
-                    import ("../views/searchresult/Anchor.vue"),
-            },
-        ],
     },
     {
         path: "/search",
@@ -870,16 +967,17 @@ const routes = [{
         ],
     },
     {
-        name: 'details',
-        path: 'details',
+        path: "/details",
+        name: "details",
         component: () =>
-            import ("../views/Details.vue")
-    }, {
-        name: 'playpage',
-        path: 'playpage',
+            import ("../views/Details.vue"),
+    },
+    {
+        path: "/playpage",
+        name: "playpage",
         component: () =>
-            import ("../views/Playpage.vue")
-    }
+            import ("../views/Playpage.vue"),
+    },
 ];
 
 const router = new VueRouter({
