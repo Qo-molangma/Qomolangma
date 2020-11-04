@@ -1,6 +1,6 @@
 <template>
   <div class="header">
-    <img class="logo" src="../assets/logo.png" alt="logo" title="Qomolangma" />
+    <img class="logo" src="../assets/logo.png" alt="logo" @click="goTuijian" title="Qomolangma" />
     <van-button
       style="background: grey"
       size="normal"
@@ -22,6 +22,12 @@ export default {
       });
       document.querySelector(".nav").style.display = "none";
     },
+    goTuijian(){
+      this.$router.push({
+        name:"tuijian"
+      })
+      document.querySelector(".nav").style.display = "block";
+    }
   },
 };
 </script>

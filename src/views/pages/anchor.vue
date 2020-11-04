@@ -14,6 +14,7 @@
 
 <script>
 import { get } from "../../utils/tool";
+import "../../assets/common.scss"
 export default {
   data() {
     return {
@@ -24,6 +25,9 @@ export default {
   },
   created() {
     this.loadData();
+    this.$router.push({
+      name:"202"
+    })
   },
   methods: {
     async loadData() {
@@ -32,7 +36,7 @@ export default {
       );
       const data = res.data[4].categoryInfos;
       this.titleList = data;
-      console.log(this.titleList);
+      // console.log(this.titleList);
     },
   },
 };
@@ -43,9 +47,10 @@ export default {
   width: 100%;
   height: 100%;
   display: flex;
-  justify-content: space-between;
+  // justify-content: space-between;
   .van-sidebar {
     width: 80px;
+    margin-right: 0;
   }
   .router-view {
     flex: 1;
