@@ -33,7 +33,7 @@ export default {
 
   .content {
     flex: 1;
-    display: flex;
+    // display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;

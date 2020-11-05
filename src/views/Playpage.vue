@@ -85,7 +85,7 @@ export default {
   padding-top: 0;
 }
 .back{
-  padding: 10px 0 0 15px;
+  padding: 18px 0 0 15px;
 }
 .to-back{
   font-size: 19px;

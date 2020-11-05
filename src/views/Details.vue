@@ -1,5 +1,8 @@
 <template>
   <div class="detail-page">
+     <div class="back">
+      <van-icon name="arrow-left" @click="backHandle" class="to-back"/>
+    </div>
     <div class="detail-head">
       <img :src="src" />
       <div class="play-count">
@@ -81,6 +84,9 @@ export default {
     },
     toPlay(id,infoId){
         this.$router.push({name:"playpage",query:{id:id,infoId:infoId}})
+    },
+    backHandle(){
+      this.$router.push({name:"tuijian"})
     }
   },
   filters: {},
@@ -88,8 +94,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.content{
+  display: block!important;
+}
+.back{
+  padding: 18px 0 0 15px;
+}
+.to-back{
+  font-size: 19px;
+}
 .detail-page{
-  padding-top: 20px;
+  padding-top: 12px;
 }
 .detail-head{
   display: flex;
