@@ -142,7 +142,6 @@ export default {
   text-align: center;
   margin-bottom: 30px;
   font-size: 14px;
-  color: ;
 }
 .comment-item img {
   width: 37px;
