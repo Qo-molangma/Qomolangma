@@ -25,10 +25,14 @@
           <div class="nc">
             <h4>{{ item.nickname }}</h4>
             <span v-html="item.content" class="com-content"></span>
+            <div class="likes">
+              {{item.likes}}
+                <van-icon name="good-job" color="#ddd" size='12' class="good" />
+            </div>
           </div>
         </li>
       </ul>
-      <p class="dian" @click="loadMore">加载更多...</p>
+      <p class="dian" v-if="isCommentsNull!=0" @click="loadMore">加载更多...</p>
     </div>
   </div>
 </template>
@@ -42,6 +46,7 @@ export default {
       picUrl: "",
       title: "",
       comments: [],
+      isCommentsNull:0,
       commentCount: 0,
       page:1,
       pages:1,
@@ -64,6 +69,7 @@ export default {
       );
       console.log(res);
       this.comments = res.data.comments;
+      this.isCommentsNull= this.comments.length
       this.commentCount = res.data.totalCount;
       this.pages=res.data.pageSize
     },
@@ -158,18 +164,27 @@ export default {
   display: flex;
   align-self: start;
   flex-direction: column;
+  position: relative;
+  width:332px;
+}
+.comment-item .nc .likes{
+  position: absolute;
+  right: 2px;
+  top: 23px;
+  font-size: 12px;
+  color: #ccc;
 }
 .comment-item .nc h4 {
   line-height: 20px;
   margin-bottom: 4px;
   color: #666;
-  font-size: 16px;
+  font-size: 12px;
 }
 .comment-item .nc span {
   display: inline-block ;
   color: #333;
   line-height: 23.5px;
-  width: 320px;
+  width: 270px;
   font-size: 13px;
 }
 .comment-item .nc .com-content .emoji {
