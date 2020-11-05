@@ -79,7 +79,7 @@ const routes = [
   {
     path: "/details",
     name: "details",
-    components: () => import("../views/Details"),
+    component: () => import("../views/Details.vue"),
   },
   {
     path: "/gengduo",
@@ -835,11 +835,6 @@ const routes = [
         component: () => import("../views/search/Other.vue"),
       },
     ],
-  },
-  {
-    path: "/details",
-    name: "details",
-    component: () => import("../views/Details.vue"),
   },
   {
     path: "/playpage",
