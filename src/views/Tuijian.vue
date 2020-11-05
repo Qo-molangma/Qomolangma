@@ -71,7 +71,7 @@ export default {
   },
   methods: {
     toDetails(i){
-      this.$router.push({name:"details",params:{item:i},query:{item:i}})
+      this.$router.push({name:"details"})
       setSessionStorage(i)
       document.querySelector('.nav').style.display="none"
     },

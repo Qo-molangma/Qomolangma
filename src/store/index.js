@@ -23,8 +23,8 @@ export default new Vuex.Store({
     actions: {
         search({ commit }, payload) {
             console.log(payload);
-            console.log(`https://m.ximalaya.com/m-revision/page/search?kw=${payload}&core=all&page=1&rows=5`);
-            get(`https://m.ximalaya.com/m-revision/page/search?kw=${payload}&core=all&page=1&rows=5`).then(res => {
+            console.log(`https://m.ximalaya.com/m-revision/page/search?kw=${payload}&core=all&page=1&rows=10`);
+            get(`https://m.ximalaya.com/m-revision/page/search?kw=${payload}&core=all&page=1&rows=10`).then(res => {
                 console.log(res);
                 commit('loadAnchor', res.data.userViews.users)
                 commit('loadVoice', res.data.trackViews.tracks)
