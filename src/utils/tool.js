@@ -25,6 +25,14 @@ export function setLocalstorage(data) {
     localArr.push(data)
     localStorage.setItem('searchHistory', JSON.stringify(localArr))
 }
+//设置详情页的取值是从sessionStorage
+export function setSessionStorage(item) {
+    sessionStorage.setItem('item', JSON.stringify(item))
+
+}
+export function getSessionStorage() {
+    return JSON.parse(sessionStorage.getItem('item'))
+}
 //清空localstorage
 export function removeLocalstorage() {
     localStorage.removeItem("searchHistory")

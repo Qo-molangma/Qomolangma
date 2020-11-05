@@ -1,5 +1,8 @@
 <template>
   <div class="playpage">
+    <div class="back">
+      <van-icon name="arrow-left" @click="backHandle" class="to-back"/>
+    </div>
     <div class="play">
       <h3>{{ title }}</h3>
       <div class="img">
@@ -54,7 +57,6 @@ export default {
       this.comments = res.data.comments;
       this.commentCount=res.data.totalCount
     },
-    //       document.querySelector(".img").style.animationPlayState="running"
     pauseHandle(){
         console.log('停了')
         document.querySelector(".img").style.animationPlayState="paused"
@@ -62,6 +64,9 @@ export default {
     playHandle(){
       console.log('播放了')
       document.querySelector(".img").style.animationPlayState="running"
+    },
+    backHandle(){
+      this.$router.push({name:"details"})
     }
   },
   created() {
@@ -77,19 +82,29 @@ export default {
   align-items: center;
   flex-direction: column;
   padding: 15px 0;
+  padding-top: 0;
+}
+.back{
+  padding: 10px 0 0 15px;
+}
+.to-back{
+  font-size: 19px;
 }
 .play h3{
-  font-size: 20px;
+  font-size: 16px;
   line-height: 25px;
+  text-align: center;
   margin-bottom: 14px;
-  padding: 2px 12px;
+  padding: 2px 45px;
   height: auto;
+  color: #666;
+
 }
 .play .img{
   width:150px;
   height:150px;
   margin-bottom: 14px;
-  animation: myfirst 10s infinite linear;
+  animation: myfirst 15s infinite linear;
   border-radius: 50%; 
   animation-play-state:paused;
 }
@@ -142,5 +157,8 @@ export default {
  0%{transform: rotate(0deg);}
  50%{transform: rotate(180deg);}
  100%{transform: rotate(360deg);}
+}
+.nav{
+  display: none;
 }
 </style>

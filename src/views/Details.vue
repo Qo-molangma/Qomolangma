@@ -5,7 +5,7 @@
       <div class="play-count">
         <van-icon name="service-o" />{{ playCount | wan }}
       </div>
-      <p class="nickname">作者: {{ nickname }}</p>
+      <p class="nickname">演播: {{ nickname }}</p>
     </div>
     <div>
       <h2 class="txt_2">节目({{ trackCount }})</h2>
@@ -27,6 +27,7 @@
 
 <script>
 import { get } from "../utils/tool";
+import {getSessionStorage} from '../utils/tool'
 import "../assets/classify.scss";
 
 export default {
@@ -48,17 +49,18 @@ export default {
   created() {
     this.loadData();
     console.log(this.$route);
+    console.log(getSessionStorage());
     this.src =
-      "https://imagev2.xmcdn.com/" + this.$route.query.item.albumInfo.cover;
-    this.playCount = this.$route.query.item.statCountInfo.playCount;
-    this.trackCount = this.$route.query.item.statCountInfo.trackCount;
-    this.nickname = this.$route.query.item.anchorInfo.nickname;
-    this.id=this.$route.query.item.id
+      "https://imagev2.xmcdn.com/" + getSessionStorage().albumInfo.cover;
+    this.playCount = getSessionStorage().statCountInfo.playCount;
+    this.trackCount = getSessionStorage().statCountInfo.trackCount;
+    this.nickname = getSessionStorage().anchorInfo.nickname;
+    this.id=getSessionStorage().id
   },
   methods: {
     async loadData() {
       const res = await get(
-        `https://m.ximalaya.com/m-revision/common/album/queryAlbumTrackRecordsByPage?albumId=${this.$route.query.item.id}&page=1&pageSize=10&asc=true&countKeys=play%2Ccomment&v=1604303035067`
+        `https://m.ximalaya.com/m-revision/common/album/queryAlbumTrackRecordsByPage?albumId=${getSessionStorage().id}&page=1&pageSize=10&asc=true&countKeys=play%2Ccomment&v=1604303035067`
       );
       const data = res.data.trackDetailInfos;
       console.log(res);
@@ -70,7 +72,7 @@ export default {
   async  loadMore(){
     this.page++
     if(this.page<=this.pages){
-        let res= await get( `https://m.ximalaya.com/m-revision/common/album/queryAlbumTrackRecordsByPage?albumId=${this.$route.query.item.id}&page=${this.page}&pageSize=10&asc=true&countKeys=play%2Ccomment&v=1604303035067`)
+        let res= await get( `https://m.ximalaya.com/m-revision/common/album/queryAlbumTrackRecordsByPage?albumId=${getSessionStorage().id}&page=${this.page}&pageSize=10&asc=true&countKeys=play%2Ccomment&v=1604303035067`)
         this.title=[...this.title,...res.data.trackDetailInfos]
     }else{
       document.querySelector('.load-more').remove()
@@ -86,6 +88,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.detail-page{
+  padding-top: 20px;
+}
 .detail-head{
   display: flex;
   flex-direction: column;
@@ -96,7 +101,7 @@ export default {
   margin: 0 auto;
 }
 .list {
-  padding: 2px 12px;
+  padding: 2px 20px;
 }
 .list li {
   display: flex;
@@ -154,5 +159,8 @@ export default {
 .nomore{
 display: none;
 text-align: center;
+}
+.nav{
+  display: none;
 }
 </style>

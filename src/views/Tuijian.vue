@@ -55,6 +55,7 @@
 import { get } from "../utils/tool";
 import "../assets/classify.scss";
 import "../assets/list-view.scss";
+import {setSessionStorage} from "../utils/tool"
 
 export default {
   components: {},
@@ -71,6 +72,7 @@ export default {
   methods: {
     toDetails(i){
       this.$router.push({name:"details",params:{item:i},query:{item:i}})
+      setSessionStorage(i)
       document.querySelector('.nav').style.display="none"
     },
     async loadData() {
