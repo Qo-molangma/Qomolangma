@@ -22,14 +22,21 @@ Vue.config.productionTip = false;
 Vue.use(ElementUI);
 //过滤器
 Vue.filter("wan", (v) => {
-    if (v > 10000) {
-        let w = Number(v / 10000)
-        return w + '万次'
+        if (v > 10000) {
+            let w = Number(v / 10000)
+            return w + '万次'
+        } else {
+            return v + '次'
+        }
+    })
+    //过滤器
+Vue.filter('http', (v) => {
+    if (v.startsWith('http://fdfs.xmcdn.com/')) {
+        return v
     } else {
-        return v + '次'
+        return 'http://fdfs.xmcdn.com/' + v
     }
 })
-
 Vue.use(Vant);
 
 Vue.use(Button, Tab, Tabs, Grid, GridItem, List);
