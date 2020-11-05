@@ -89,12 +89,6 @@ const routes = [{
         ],
     },
     {
-        path: "/details",
-        name: "details",
-        components: () =>
-            import ("../views/Details"),
-    },
-    {
         path: "/gengduo",
         name: "more",
         component: () =>
