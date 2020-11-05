@@ -4,9 +4,10 @@
         <li v-for="(item,index) in voice"
         :key="index">
         <img :src="item.trackInfo.cover_path" alt="">
-        <p>分类：{{item.trackInfo.category_title}}</p>
-        <p> {{item.trackInfo.title}}</p>
-        <!-- <p>{{item.trackInfo.tags}}</p> -->
+        <div class="right">
+            <p>分类：{{item.trackInfo.category_title}}</p>
+            <p>标题：{{item.trackInfo.title}}</p>
+        </div>
         </li>
     </ul>
 </div>
@@ -26,7 +27,16 @@ computed:{
 <style>
 .voice{
     display: flex;
-
+}
+.right {
+    margin-left: 15px;
+}
+.right p{
+    display: block;
+}
+.right .description{
+    font-size: 14px;
+    color: #444;
 }
 .voice ul{
     padding: 10px 12px;

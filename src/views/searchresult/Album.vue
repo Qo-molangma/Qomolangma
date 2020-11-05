@@ -1,15 +1,18 @@
 <template>
 <div class="albums">
-  <ul>
+    <ul>
         <li v-for="(item,index) in albums"
         :key="index">
-        <img :src="item.albumInfo.cover_path" alt="">
-        <!-- <p>{{item.albumInfo.personDescribe}}</p> -->
-        <p> {{item.albumInfo.title}}</p>
-        <p>评分：{{item.albumInfo.score}}</p>
-        <!-- <p>{{item.albunInfo.tags}}</p> -->
+        <img :src="item.albumInfo.cover_path" alt="" >
+        <div class="right">
+            <p> {{item.albumInfo.title}}</p>
+            <p class="pingfen">评分：{{item.albumInfo.score}}</p>
+        </div>
         </li>
     </ul>
+    <!-- <p class="load-more tc" @click="loadMore">
+        加载更多<van-icon name="arrow-down" color="#ff7500" />
+    </p> -->
 </div>
 
 </template>
@@ -21,30 +24,35 @@ export default {
         return {
         }
     },
-computed:{
-    ...mapState(["albums"]),
-}
+    computed:{
+        ...mapState(["albums"]),
+    }
+    ,
+    created(){
+        console.log(this.albums);
+    },
+    methods:{
+    }
 
 }
 </script>
 
 <style>
-.albums{
-    display: flex;
-
-}
 .albums ul{
     padding: 10px 12px;
 }
+.right{
+    margin-left: 15px;
+}
+.right .pingfen{
+    color: #aaa;
+}
 li{
     display: flex;
-align-items: center;    
-margin-bottom: 5px;
+    align-items: center;    
+    margin-bottom: 5px;
 }
 img{
-    display: inline-block;
-}
-p{
     display: inline-block;
 }
 </style>

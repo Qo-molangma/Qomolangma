@@ -4,8 +4,10 @@
         <li v-for="(item,index) in anchor"
         :key="index">
         <img :src="item.userInfo.smallPic" alt="">
-        <p>{{item.userInfo.personDescribe}}</p>
-        <p> {{item.userInfo.nickname}}</p>
+        <div class="right">
+            <p>{{item.userInfo.nickname}}</p>
+            <p class="description">介绍：{{item.userInfo.personDescribe}}</p>
+        </div>
         </li>
     </ul>
 </div>
@@ -22,18 +24,27 @@ computed:{
 </script>
 
 <style>
+.anchor img{
+display: inline-block;
+width: 80px;
+height: 80px;
+border-radius: 50%;
+}
 .anchor{
-    display: flex;
-
+    padding: 0 15px;
 }
 li{
     display: flex;
-align-items: center;    
+    align-items: center;    
 }
-img{
-    display: inline-block;
+.right{
+    margin-left: 15px;
 }
-p{
-    display: inline-block;
+.right p{
+    display: block;
+}
+.right .description{
+    font-size: 14px;
+    color: #444;
 }
 </style>
