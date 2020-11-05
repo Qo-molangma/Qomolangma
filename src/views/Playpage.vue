@@ -2,8 +2,10 @@
   <div class="playpage">
     <div class="play">
       <h3>{{ title }}</h3>
-      <img :src="picUrl" alt="" />
-      <audio :src="audioUrl" controls loop @click="zhuan"></audio>
+      <div class="img">
+          <img :src="picUrl" alt="" />
+      </div>
+      <audio @pause="pauseHandle" :src="audioUrl" controls loop @play="playHandle">1234</audio>
     </div>
     <div class="comment">
     <strong>{{commentCount}}条评论</strong>
@@ -52,8 +54,14 @@ export default {
       this.comments = res.data.comments;
       this.commentCount=res.data.totalCount
     },
-    zhuan(){
-      console.log(223);
+    //       document.querySelector(".img").style.animationPlayState="running"
+    pauseHandle(){
+        console.log('停了')
+        document.querySelector(".img").style.animationPlayState="paused"
+    },
+    playHandle(){
+      console.log('播放了')
+      document.querySelector(".img").style.animationPlayState="running"
     }
   },
   created() {
@@ -77,12 +85,18 @@ export default {
   padding: 2px 12px;
   height: auto;
 }
-.play img{
+.play .img{
   width:150px;
   height:150px;
   margin-bottom: 14px;
-  animation: myfirst infinite linear;
-  border-radius: 50%;
+  animation: myfirst 10s infinite linear;
+  border-radius: 50%; 
+  animation-play-state:paused;
+}
+.play .img img {
+  width:100%;
+  height:100%;
+   border-radius: 50%;
 }
 .comment strong{
   font-weight: bold;
@@ -123,7 +137,7 @@ export default {
     width: 320px;
     font-size: 13px;
  }
- @webkit-keyframes myfirst
+ @-webkit-keyframes myfirst
 {
  0%{transform: rotate(0deg);}
  50%{transform: rotate(180deg);}

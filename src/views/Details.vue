@@ -48,18 +48,17 @@ export default {
   created() {
     this.loadData();
     console.log(this.$route);
-    console.log(this.$route.params.item.id);
     this.src =
-      "https://imagev2.xmcdn.com/" + this.$route.params.item.albumInfo.cover;
-    this.playCount = this.$route.params.item.statCountInfo.playCount;
-    this.trackCount = this.$route.params.item.statCountInfo.trackCount;
-    this.nickname = this.$route.params.item.anchorInfo.nickname;
-    this.id=this.$route.params.item.id
+      "https://imagev2.xmcdn.com/" + this.$route.query.item.albumInfo.cover;
+    this.playCount = this.$route.query.item.statCountInfo.playCount;
+    this.trackCount = this.$route.query.item.statCountInfo.trackCount;
+    this.nickname = this.$route.query.item.anchorInfo.nickname;
+    this.id=this.$route.query.item.id
   },
   methods: {
     async loadData() {
       const res = await get(
-        `https://m.ximalaya.com/m-revision/common/album/queryAlbumTrackRecordsByPage?albumId=${this.$route.params.item.id}&page=1&pageSize=10&asc=true&countKeys=play%2Ccomment&v=1604303035067`
+        `https://m.ximalaya.com/m-revision/common/album/queryAlbumTrackRecordsByPage?albumId=${this.$route.query.item.id}&page=1&pageSize=10&asc=true&countKeys=play%2Ccomment&v=1604303035067`
       );
       const data = res.data.trackDetailInfos;
       console.log(res);
@@ -71,11 +70,11 @@ export default {
   async  loadMore(){
     this.page++
     if(this.page<=this.pages){
-        let res= await get( `https://m.ximalaya.com/m-revision/common/album/queryAlbumTrackRecordsByPage?albumId=${this.$route.params.item.id}&page=${this.page}&pageSize=10&asc=true&countKeys=play%2Ccomment&v=1604303035067`)
+        let res= await get( `https://m.ximalaya.com/m-revision/common/album/queryAlbumTrackRecordsByPage?albumId=${this.$route.query.item.id}&page=${this.page}&pageSize=10&asc=true&countKeys=play%2Ccomment&v=1604303035067`)
         this.title=[...this.title,...res.data.trackDetailInfos]
     }else{
       document.querySelector('.load-more').remove()
-       document.querySelector('.nomore').style.display="block"
+      document.querySelector('.nomore').style.display="block"
     }
     },
     toPlay(id,infoId){
