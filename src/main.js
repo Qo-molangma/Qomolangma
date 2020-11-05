@@ -22,11 +22,19 @@ Vue.config.productionTip = false;
 Vue.use(ElementUI);
 //过滤器
 Vue.filter("wan", (v) => {
+    if (v > 10000) {
+        let w = Number(v / 10000)
+        return w + '万次'
+    } else {
+        return v + '次'
+    }
+})
+Vue.filter("wanren", (v) => {
         if (v > 10000) {
             let w = Number(v / 10000)
-            return w + '万次'
+            return w + '万'
         } else {
-            return v + '次'
+            return v
         }
     })
     //过滤器

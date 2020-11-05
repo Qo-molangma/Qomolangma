@@ -7,6 +7,7 @@
         <div class="right">
             <p>{{item.userInfo.nickname}}</p>
             <p class="description">介绍：{{item.userInfo.personDescribe}}</p>
+            <p class="followers">粉丝：{{item.userInfo.followers_counts | wanren}}</p>
         </div>
         </li>
     </ul>
@@ -46,5 +47,8 @@ li{
 .right .description{
     font-size: 14px;
     color: #444;
+}
+.right .followers{
+    color: #bbb;
 }
 </style>
