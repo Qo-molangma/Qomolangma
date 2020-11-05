@@ -130,17 +130,22 @@ export default {
 }
 .detail-head img {
   margin: 0 auto;
+  width: 109px;
+  height: 109px;
 }
 .list {
-  padding: 2px 20px;
+  padding: 2px 26px;
 }
 .list li {
   display: flex;
   justify-content: flex-start;
-  font-size: 16px;
+  font-size: 14px;
   border-bottom: 1px solid #aaa;
   padding: 12px 0;
   color: #333;
+}
+.list li:hover{
+  color: black;
 }
 .list span {
   margin-left: 10px;
