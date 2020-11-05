@@ -1,7 +1,7 @@
 <template>
   <div class="detail-page">
-     <div class="back">
-      <van-icon name="arrow-left" @click="backHandle" class="to-back"/>
+    <div class="back">
+      <van-icon name="arrow-left" @click="backHandle" class="to-back" />
     </div>
     <div class="detail-head">
       <img :src="src" />
@@ -13,8 +13,12 @@
     <div>
       <h2 class="txt_2">节目({{ trackCount }})</h2>
       <ul class="list">
-        <li v-for="(item, index) in title" :key="index" @click="toPlay(id,item.trackInfo.id)">
-          <van-icon name="play-circle-o" size="20"/>
+        <li
+          v-for="(item, index) in title"
+          :key="index"
+          @click="toPlay(id, item.trackInfo.id)"
+        >
+          <van-icon name="play-circle-o" size="20" />
           <span>
             {{ item.trackInfo.title }}
           </span>
@@ -30,7 +34,7 @@
 
 <script>
 import { get } from "../utils/tool";
-import {getSessionStorage} from '../utils/tool'
+import { getSessionStorage } from "../utils/tool";
 import "../assets/classify.scss";
 
 export default {
@@ -43,10 +47,10 @@ export default {
       playCount: 0,
       trackCount: 0,
       nickname: "",
-      page:1,
-      pages:1,
-      id:0,
-      infoId:0
+      page: 1,
+      pages: 1,
+      id: 0,
+      infoId: 0,
     };
   },
   created() {
@@ -58,55 +62,67 @@ export default {
     this.playCount = getSessionStorage().statCountInfo.playCount;
     this.trackCount = getSessionStorage().statCountInfo.trackCount;
     this.nickname = getSessionStorage().anchorInfo.nickname;
-    this.id=getSessionStorage().id
+    this.id = getSessionStorage().id;
   },
   methods: {
     async loadData() {
       const res = await get(
-        `https://m.ximalaya.com/m-revision/common/album/queryAlbumTrackRecordsByPage?albumId=${getSessionStorage().id}&page=1&pageSize=10&asc=true&countKeys=play%2Ccomment&v=1604303035067`
+        `https://m.ximalaya.com/m-revision/common/album/queryAlbumTrackRecordsByPage?albumId=${
+          getSessionStorage().id
+        }&page=1&pageSize=10&asc=true&countKeys=play%2Ccomment&v=1604303035067`
       );
       const data = res.data.trackDetailInfos;
       console.log(res);
       console.log(this.infoId);
-      this.pages=Math.ceil(res.data.totalCount/res.data.pageSize)  
+      this.pages = Math.ceil(res.data.totalCount / res.data.pageSize);
       console.log(this.pages);
       this.title = data;
     },
-  async  loadMore(){
-    this.page++
-    if(this.page<=this.pages){
-        let res= await get( `https://m.ximalaya.com/m-revision/common/album/queryAlbumTrackRecordsByPage?albumId=${getSessionStorage().id}&page=${this.page}&pageSize=10&asc=true&countKeys=play%2Ccomment&v=1604303035067`)
-        this.title=[...this.title,...res.data.trackDetailInfos]
-    }else{
-      document.querySelector('.load-more').remove()
-      document.querySelector('.nomore').style.display="block"
-    }
+    async loadMore() {
+      this.page++;
+      if (this.page <= this.pages) {
+        let res = await get(
+          `https://m.ximalaya.com/m-revision/common/album/queryAlbumTrackRecordsByPage?albumId=${
+            getSessionStorage().id
+          }&page=${
+            this.page
+          }&pageSize=10&asc=true&countKeys=play%2Ccomment&v=1604303035067`
+        );
+        this.title = [...this.title, ...res.data.trackDetailInfos];
+      } else {
+        document.querySelector(".load-more").remove();
+        document.querySelector(".nomore").style.display = "block";
+      }
     },
-    toPlay(id,infoId){
-        this.$router.push({name:"playpage",query:{id:id,infoId:infoId}})
+    toPlay(id, infoId) {
+      this.$router.push({
+        name: "playpage",
+        query: { id: id, infoId: infoId },
+      });
     },
-    backHandle(){
-      this.$router.push({name:"tuijian"})
-    }
+    backHandle() {
+      this.$router.push({ name: "tuijian" });
+      document.querySelector(".nav").style.display = "block";
+    },
   },
   filters: {},
 };
 </script>
 
 <style lang="scss" scoped>
-.content{
-  display: block!important;
+.content {
+  display: block !important;
 }
-.back{
+.back {
   padding: 18px 0 0 15px;
 }
-.to-back{
+.to-back {
   font-size: 19px;
 }
-.detail-page{
+.detail-page {
   padding-top: 12px;
 }
-.detail-head{
+.detail-head {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -171,11 +187,11 @@ export default {
   font-weight: bold;
   text-indent: 2em;
 }
-.nomore{
-display: none;
-text-align: center;
+.nomore {
+  display: none;
+  text-align: center;
 }
-.nav{
+.nav {
   display: none;
 }
 </style>

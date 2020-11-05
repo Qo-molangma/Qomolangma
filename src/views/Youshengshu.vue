@@ -71,7 +71,7 @@
       >
         <div class="album-hor">
           <a href="javascript:;" v-for="item in moreSound" :key="item.data.id">
-            <div class="album" @click="toDetails(item)">
+            <div class="album">
               <div class="album-cover">
                 <img
                   :src="`https://imagev2.xmcdn.com/${item.data.albumInfo.cover}`"
@@ -91,7 +91,7 @@
 </template>
 
 <script>
-import { get } from "../utils/tool";
+import { get,setSessionStorage } from "../utils/tool";
 import "../assets/classify.scss";
 import "../assets/common.scss";
 
@@ -114,9 +114,8 @@ export default {
     toDetails(i) {
       this.$router.push({
         name: "details",
-        params: { item: i },
-        query: { item: i },
-      });
+      })
+      setSessionStorage(i)
       document.querySelector(".nav").style.display = "none";
     },
     async loadData() {

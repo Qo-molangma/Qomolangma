@@ -17,8 +17,9 @@
           class="album-wrap"
           v-for="v in item.albumBriefDetailInfos.slice(0, 3)"
           :key="v.id"
+          @click="toDetails(v)"
         >
-          <a href="" class="album-container">
+          <a href="javascript:;" class="album-container">
             <div class="album-cover">
               <img
                 :src="`https://imagev2.xmcdn.com/${v.albumInfo.cover}`"
@@ -32,8 +33,12 @@
         </section>
       </div>
       <div class="album-hor">
-        <a href="" v-for="h in item.albumBriefDetailInfos.slice(3)" :key="h.id">
-          <div class="album">
+        <a
+          href="javascript:;"
+          v-for="h in item.albumBriefDetailInfos.slice(3)"
+          :key="h.id"
+        >
+          <div class="album" @click="toDetails(h)">
             <div class="album-cover">
               <img
                 :src="`https://imagev2.xmcdn.com/${h.albumInfo.cover}`"
@@ -69,7 +74,7 @@
         @load="onLoad"
       >
         <div class="album-hor">
-          <a href="" v-for="item in albumList" :key="item.data.id">
+          <a href="javascript:;" v-for="item in albumList" :key="item.data.id">
             <div class="album">
               <div class="album-cover">
                 <img
@@ -90,7 +95,7 @@
 </template>
 
 <script>
-import { get } from "../utils/tool";
+import { get, setSessionStorage } from "../utils/tool";
 import "../assets/classify.scss";
 import "../assets/common.scss";
 
@@ -112,6 +117,13 @@ export default {
     this.loadData();
   },
   methods: {
+    toDetails(i) {
+      this.$router.push({
+        name: "details",
+      });
+      setSessionStorage(i);
+      document.querySelector(".nav").style.display = "none";
+    },
     async loadData() {
       const res = await get(
         "https://m.ximalaya.com/m-revision/page/index/queryIndexCategoryTabContent?moduleKey=yinyue"
@@ -135,7 +147,7 @@ export default {
       // console.log(this.moreSound);
 
       this.albumList = this.moreSound.filter(function (v) {
-        return (v.type === "album");
+        return v.type === "album";
       });
 
       this.loading = false;

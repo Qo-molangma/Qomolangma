@@ -37,6 +37,8 @@ Vue.filter('http', (v) => {
         return 'http://fdfs.xmcdn.com/' + v
     }
 })
+
+
 Vue.use(Vant);
 
 Vue.use(Button, Tab, Tabs, Grid, GridItem, List);

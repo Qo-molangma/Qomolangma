@@ -105,13 +105,13 @@ export default {
   height:150px;
   margin-bottom: 14px;
   animation: myfirst 15s infinite linear;
-  border-radius: 50%; 
+  border-radius: 100% !important; 
   animation-play-state:paused;
 }
 .play .img img {
   width:100%;
   height:100%;
-   border-radius: 50%;
+  border-radius: 50%;
 }
 .comment strong{
   font-weight: bold;
