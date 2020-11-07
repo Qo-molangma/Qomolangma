@@ -3,12 +3,9 @@
     <div class="album-hor">
       <a href="javascript:;" v-for="i in list" :key="i.id">
         <div class="album" @click="toDetails(i)">
-          <div class="album-cover">
-            <img
-              :src="`https://imagev2.xmcdn.com/${i.albumInfo.cover}`"
-              alt=""
-            />
-            <div class="content">
+          <div class="album-cover" >
+            <img :src="`https://imagev2.xmcdn.com/${i.albumInfo.cover}`" alt="" />
+            <div class="content" >
               <h3 class="album-title">{{ i.albumInfo.title }}</h3>
               <p class="album-content">{{ i.albumInfo.customTitle }}</p>
               <div class="album-info">
@@ -31,7 +28,7 @@
 
 <script>
 import "../../../assets/page.scss";
-import { get, setSessionStorage } from "../../../utils/tool";
+import { get,setSessionStorage } from "../../../utils/tool";
 export default {
   data() {
     return {
@@ -55,6 +52,11 @@ export default {
       );
       console.log(res.data);
       this.list = res.data.rankModuleInfoList;
+    },
+     toDetails(i){
+      this.$router.push({name:"details"})
+      setSessionStorage(i)
+      document.querySelector('.nav').style.display="none"
     },
   },
 };
