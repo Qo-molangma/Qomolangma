@@ -75,7 +75,7 @@
       >
         <div class="album-hor">
           <a href="javascript:;" v-for="item in albumList" :key="item.data.id">
-            <div class="album">
+            <div class="album" @click="toDetails(item.data)">
               <div class="album-cover">
                 <img
                   :src="`https://imagev2.xmcdn.com/${item.data.albumInfo.cover}`"
