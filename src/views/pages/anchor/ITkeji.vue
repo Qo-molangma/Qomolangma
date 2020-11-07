@@ -5,7 +5,15 @@
         <div class="album">
           <div class="album-cover">
             <img :src="`https://imagev2.xmcdn.com/${i.userInfo.logo}`" alt="" />
-            <div class="content">
+            <div
+              class="content"
+              @click="
+                toAnchorDetail(
+                  i.id,
+                  `https://imagev2.xmcdn.com/${i.userInfo.logo}`
+                )
+              "
+            >
               <h3 class="album-title">{{ i.userInfo.nickname }}</h3>
               <p class="album-content">{{ i.userInfo.ptitle }}</p>
               <div class="album-info">
@@ -27,8 +35,8 @@
 </template>
 
 <script>
-import "../../../assets/page.scss"
-import { get } from "../../../utils/tool";
+import "../../../assets/page.scss";
+import { get, setAnchorSessionStorage } from "../../../utils/tool";
 export default {
   data() {
     return {
@@ -45,6 +53,14 @@ export default {
       );
       // console.log(res.data);
       this.list = res.data.rankModuleInfoList;
+    },
+    toAnchorDetail(id, pic) {
+      console.log(id);
+      setAnchorSessionStorage(id, pic);
+      this.$router.push({
+        name: "anchordetail",
+        query: { id: id },
+      });
     },
   },
 };
