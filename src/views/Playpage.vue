@@ -50,6 +50,7 @@ export default {
       commentCount: 0,
       page:1,
       pages:1,
+      infoId:0
     };
   },
   methods: {
@@ -61,6 +62,7 @@ export default {
       this.audioUrl = res.audioUrl;
       this.picUrl = res.picUrl;
       this.title = res.title;
+      this.infoId=this.$route.query.infoId
       console.log(res);
     },
     async loadComment() {
@@ -93,6 +95,9 @@ export default {
     backHandle() {
       this.$router.push({ name: "details" });
     },
+    toNext(){
+      get(`https://m.ximalaya.com/m-revision/page/track/queryTrackPage/${this.infoId+1}`)
+    }
   },
   created() {
     this.loadPlay();
@@ -108,6 +113,7 @@ export default {
   flex-direction: column;
   padding: 15px 0;
   padding-top: 0;
+  position: relative;
 }
 .back {
   padding: 18px 0 0 15px;
@@ -128,9 +134,10 @@ export default {
   width: 150px;
   height: 150px;
   margin-bottom: 14px;
-  animation: myfirst 15s infinite linear;
   border-radius: 100% !important;
+  animation: myfirst 15s infinite linear;
   animation-play-state: paused;
+  position: relative;
 }
 .play .img img {
   width: 100%;

@@ -62,6 +62,22 @@ const routes = [{
         name: "keji",
         component: () =>
             import ("../views/Keji.vue"),
+    }, {
+        path: "/anchordetail",
+        name: "anchordetail",
+        component: () =>
+            import ("../views/anchordetail/Anchordetail.vue"),
+        children: [{
+            path: "anchormaterial",
+            name: "anchormaterial",
+            component: () =>
+                import ("../views/anchordetail/children/Anchormaterial.vue"),
+        }, {
+            path: "anchoralbum",
+            name: "anchoralbum",
+            component: () =>
+                import ("../views/anchordetail/children/Anchoralbum.vue"),
+        }]
     },
     {
         path: "/Searchresult",
@@ -923,10 +939,10 @@ const routes = [{
                     import ("../views/search/Storytelling.vue"),
             },
             {
-                path: "sound",
-                name: "sound",
+                path: "children",
+                name: "children",
                 component: () =>
-                    import ("../views/search/Sound.vue"),
+                    import ("../views/search/Children.vue"),
             },
             {
                 path: "history",

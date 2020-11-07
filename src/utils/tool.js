@@ -25,6 +25,10 @@ export function setLocalstorage(data) {
     localArr.push(data)
     localStorage.setItem('searchHistory', JSON.stringify(localArr))
 }
+//清空localstorage
+export function removeLocalstorage() {
+    localStorage.removeItem("searchHistory")
+}
 //设置详情页的取值是从sessionStorage
 export function setSessionStorage(item) {
     sessionStorage.setItem('item', JSON.stringify(item))
@@ -33,7 +37,13 @@ export function setSessionStorage(item) {
 export function getSessionStorage() {
     return JSON.parse(sessionStorage.getItem('item'))
 }
-//清空localstorage
-export function removeLocalstorage() {
-    localStorage.removeItem("searchHistory")
+export function setAnchorSessionStorage(item, pic) {
+    sessionStorage.setItem('anchor', item)
+    sessionStorage.setItem('smallPic', pic)
+}
+export function getAnchorSessionStorage() {
+    return sessionStorage.getItem('anchor')
+}
+export function getsmallPicSessionStorage() {
+    return sessionStorage.getItem('smallPic')
 }

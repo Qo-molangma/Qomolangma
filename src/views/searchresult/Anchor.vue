@@ -2,6 +2,7 @@
 <div class="anchor">
     <ul>
         <li v-for="(item,index) in anchor"
+        @click="toAnchorDetail(item.userInfo.uid,item.userInfo.smallPic)"
         :key="index">
         <img :src="item.userInfo.smallPic" alt="">
         <div class="right">
@@ -16,10 +17,21 @@
 </template>
 
 <script>
+import {setAnchorSessionStorage} from "../../utils/tool"
 import {mapState} from "vuex"  //computed
 export default {
 computed:{
     ...mapState(["anchor"]),
+},
+methods:{
+    toAnchorDetail(id,pic){
+    console.log(id);
+    setAnchorSessionStorage(id,pic)
+    this.$router.push({
+        name: "anchordetail",
+        query: { id: id},
+    });
+}
 }
 }
 </script>

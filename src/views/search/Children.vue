@@ -1,7 +1,7 @@
 <template>
   <div class="buss">
     <ul>
-      <li v-for="(item, index) in sound" :key="index">
+      <li v-for="(item, index) in children" :key="index">
         <span class="order">{{ index + 1 }}</span>
         <span class="context"> {{ item.title }}</span>
         <span class="will"><van-icon :name='item.will'/></span>
@@ -14,7 +14,7 @@
 export default {
 data(){
     return {
-        sound:[
+        children:[
         {title:"老丁说股",will:'exchange'},
         {title:"米小圈上学记",will:'down'},
         {title:"有声的紫禁",will:'back-top'},
@@ -35,7 +35,9 @@ data(){
         {title:"植物大战僵尸",will:'down'},
         {title:"神探迈克狐",will:'down'},
         ]
-}}
+}},
+methods:{},
+created(){}
 }
 </script>
 
