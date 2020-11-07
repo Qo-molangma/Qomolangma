@@ -71,7 +71,7 @@
       >
         <div class="album-hor">
           <a href="javascript:;" v-for="item in moreSound" :key="item.data.id">
-            <div class="album">
+            <div class="album" @click="toDetails(item.data)">
               <div class="album-cover">
                 <img
                   :src="`https://imagev2.xmcdn.com/${item.data.albumInfo.cover}`"
@@ -135,11 +135,10 @@ export default {
         "https://m.ximalaya.com/m-revision/page/index/queryCategoryFeed?moduleKey=youshengshu"
       );
 
+
       this.loading = true;
 
       this.moreSound = [...this.moreSound, ...moreSound.data.materials];
-
-      // console.log(this.moreSound);
 
       this.loading = false;
     },
@@ -155,6 +154,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss">
-</style>
