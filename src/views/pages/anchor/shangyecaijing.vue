@@ -2,7 +2,12 @@
   <div class="xs">
     <div class="album-hor">
       <a href="javascript:;" v-for="i in list" :key="i.id">
-        <div class="album">
+        <div
+          class="album"
+          @click="
+            toAnchorDetail(i.id, `https://imagev2.xmcdn.com/${i.userInfo.logo}`)
+          "
+        >
           <div class="album-cover">
             <img :src="`https://imagev2.xmcdn.com/${i.userInfo.logo}`" alt="" />
             <div class="content">
@@ -27,8 +32,8 @@
 </template>
 
 <script>
-import "../../../assets/page.scss"
-import { get } from "../../../utils/tool";
+import "../../../assets/page.scss";
+import { get, setAnchorSessionStorage } from "../../../utils/tool";
 export default {
   data() {
     return {
@@ -45,6 +50,14 @@ export default {
       );
       // console.log(res.data);
       this.list = res.data.rankModuleInfoList;
+    },
+    toAnchorDetail(id, pic) {
+      console.log(id);
+      setAnchorSessionStorage(id, pic);
+      this.$router.push({
+        name: "anchordetail",
+        query: { id: id },
+      });
     },
   },
 };
