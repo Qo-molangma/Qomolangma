@@ -25,7 +25,7 @@ computed:{
 },
 methods:{
     toAnchorDetail(id,pic){
-    console.log(id);
+        console.log(this.$route);
     setAnchorSessionStorage(id,pic)
     this.$router.push({
         name: "anchordetail",

@@ -96,6 +96,7 @@ import "../assets/classify.scss";
 import "../assets/common.scss";
 
 export default {
+  name:"ertong",
   components: {},
   data() {
     return {

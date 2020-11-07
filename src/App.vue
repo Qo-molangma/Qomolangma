@@ -3,9 +3,13 @@
     <keep-alive>
       <Header />
     </keep-alive>
-    <Nav />
+    <keep-alive>
+      <Nav />
+    </keep-alive>
     <div class="content">
-      <router-view class="" />
+      <keep-alive include="xiangsheng">
+        <router-view class="" />
+      </keep-alive>
     </div>
   </div>
 </template>

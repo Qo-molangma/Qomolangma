@@ -39,13 +39,19 @@ Vue.filter("wanren", (v) => {
     })
     //过滤器
 Vue.filter('http', (v) => {
-    if (v.startsWith('http://fdfs.xmcdn.com/')) {
-        return v
-    } else {
-        return 'http://fdfs.xmcdn.com/' + v
-    }
-})
-
+        if (v.startsWith('http://fdfs.xmcdn.com/')) {
+            return v
+        } else {
+            return 'http://fdfs.xmcdn.com/' + v
+        }
+    })
+    //路由拦截
+    // router.beforeEach((to, from, next) => {
+    //     console.log(from.name);
+    //     console.log(from);
+    //     sessionStorage.setItem("routerfrom", from.name)
+    //     next()
+    // })
 
 Vue.use(Vant);
 

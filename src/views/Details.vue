@@ -102,7 +102,7 @@ export default {
       });
     },
     backHandle() {
-      this.$router.push({ name: "tuijian" });
+      this.$router.push({ name: "tuijian"});
       document.querySelector(".nav").style.display = "block";
     },
   },

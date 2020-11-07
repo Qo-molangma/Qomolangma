@@ -100,6 +100,7 @@ import "../assets/classify.scss";
 import "../assets/common.scss";
 
 export default {
+  name:"xiangsheng",
   components: {},
   data() {
     return {
