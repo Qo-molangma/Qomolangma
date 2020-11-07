@@ -39,6 +39,13 @@ export default {
     this.loadList();
   },
   methods: {
+    toDetails(i) {
+      this.$router.push({
+        name: "details",
+      });
+      setSessionStorage(i);
+      document.querySelector(".nav").style.display = "none";
+    },
     async loadList() {
       const res = await get(
         "https://m.ximalaya.com/m-revision/page/rank/queryRank?clusterCode=free&categoryCode=all"
@@ -46,17 +53,11 @@ export default {
       console.log(res.data);
       this.list = res.data.rankModuleInfoList;
     },
-     toDetails(i){
-      this.$router.push({name:"details"})
-      setSessionStorage(i)
-      document.querySelector('.nav').style.display="none"
-    },
   },
 };
 </script>
 
 <style lang="scss" >
-
 img {
   border-radius: 0px !important;
 }
