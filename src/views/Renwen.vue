@@ -35,7 +35,7 @@
       <div class="album-hor">
         <a href="" v-for="h in item.albumBriefDetailInfos.slice(3)" :key="h.id">
           <div class="album" @click="toDetails(h)">
-            <div class="album-cover">
+            <div class="album-cover" >
               <img
                 :src="`https://imagev2.xmcdn.com/${h.albumInfo.cover}`"
                 alt=""
@@ -71,7 +71,7 @@
       >
         <div class="album-hor">
           <a href="" v-for="item in albumList" :key="item.data.id">
-            <div class="album">
+            <div class="album" @click="toDetails(item.data)">
               <div class="album-cover">
                 <img
                   :src="`https://imagev2.xmcdn.com/${item.data.albumInfo.cover}`"

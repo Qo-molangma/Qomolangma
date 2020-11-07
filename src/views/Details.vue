@@ -55,10 +55,11 @@ export default {
   },
   created() {
     this.loadData();
-    console.log(this.$route);
-    console.log(getSessionStorage());
+    // console.log(this.$route);
+    // console.log(getSessionStorage());
     this.src =
-      "https://imagev2.xmcdn.com/" + getSessionStorage().albumInfo.cover;
+      "https://imagev2.xmcdn.com/" + getSessionStorage().albumInfo.cover ;
+      console.log(this.src)
     this.playCount = getSessionStorage().statCountInfo.playCount;
     this.trackCount = getSessionStorage().statCountInfo.trackCount;
     this.nickname = getSessionStorage().anchorInfo.nickname;
@@ -72,10 +73,10 @@ export default {
         }&page=1&pageSize=10&asc=true&countKeys=play%2Ccomment&v=1604303035067`
       );
       const data = res.data.trackDetailInfos;
-      console.log(res);
-      console.log(this.infoId);
+      // console.log(res);
+      // console.log(this.infoId);
       this.pages = Math.ceil(res.data.totalCount / res.data.pageSize);
-      console.log(this.pages);
+      // console.log(this.pages);
       this.title = data;
     },
     async loadMore() {

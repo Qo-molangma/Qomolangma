@@ -2,10 +2,10 @@
   <div class="xs">
     <div class="album-hor">
       <a href="javascript:;" v-for="i in list" :key="i.id">
-        <div class="album">
-          <div class="album-cover">
+        <div class="album" @click="toDetails(i)">
+          <div class="album-cover" >
             <img :src="`https://imagev2.xmcdn.com/${i.albumInfo.cover}`" alt="" />
-            <div class="content">
+            <div class="content" >
               <h3 class="album-title">{{ i.albumInfo.title }}</h3>
               <p class="album-content">{{ i.albumInfo.customTitle }}</p>
               <div class="album-info">
@@ -28,7 +28,7 @@
 
 <script>
 import "../../../assets/page.scss";
-import { get } from "../../../utils/tool";
+import { get,setSessionStorage } from "../../../utils/tool";
 export default {
   data() {
     return {
@@ -39,6 +39,13 @@ export default {
     this.loadList();
   },
   methods: {
+    toDetails(i) {
+      this.$router.push({
+        name: "details",
+      });
+      setSessionStorage(i);
+      document.querySelector(".nav").style.display = "none";
+    },
     async loadList() {
       const res = await get(
         "https://m.ximalaya.com/m-revision/page/rank/queryRank?clusterCode=free&categoryCode=all"
@@ -51,7 +58,6 @@ export default {
 </script>
 
 <style lang="scss" >
-
 img {
   border-radius: 0px !important;
 }
