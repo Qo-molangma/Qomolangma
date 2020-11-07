@@ -53,11 +53,6 @@ export default {
       console.log(res.data);
       this.list = res.data.rankModuleInfoList;
     },
-     toDetails(i){
-      this.$router.push({name:"details"})
-      setSessionStorage(i)
-      document.querySelector('.nav').style.display="none"
-    },
   },
 };
 </script>
